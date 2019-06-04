@@ -22,6 +22,7 @@ urlpatterns = [
     # SI LAS OCUPAS, DESCOMENTALAS
     # path('Categorias', include('Apps.Categorias.urls')),
     path('registrarUsuario', views_usuarios.registrar_usuario, name="registrarUsuario"),
+    path('iniciarSesion', views_usuarios.iniciarSesion, name="iniciarSesion"),
 
 
 ]
