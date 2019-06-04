@@ -1,0 +1,21 @@
+--INSERTANDO TRES COLONIAS 
+INSERT INTO `colonias_colonias`
+(`nombre`, `codigopostal`, `referencias`) 
+VALUES 
+("Rancho Largo",76230,"Frente al Campus Juriquilla de la UAQ");
+
+INSERT INTO `colonias_colonias`
+(`nombre`, `codigopostal`, `referencias`) 
+VALUES 
+("Centro Historico",76008,"Centro de la ciudad. Abarca desde Zaragoza hasta Av. Universidad");
+
+INSERT INTO `colonias_colonias`
+(`nombre`, `codigopostal`, `referencias`) 
+VALUES 
+("Las Campanas",76010,"Frente al Campus Principal de la UAQ");
+
+--INSERTANDO UN USUARIO 
+INSERT INTO `usuarios_usuarios`
+(`colonia_id`, `usuario_id`)
+VALUES
+(1,1)
