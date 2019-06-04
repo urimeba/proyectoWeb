@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from Apps.Usuarios import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
 
     # LAS APLICACIONES SE ENCUENTRAN COMENTADAS
     # SI LAS OCUPAS, DESCOMENTALAS
@@ -26,5 +27,8 @@ urlpatterns = [
     # path('Publicaciones', include('Apps.Publicaciones.urls')),
     # path('Usuarios', include('Apps.Usuarios.urls')),
     # path('Colonias', include('Apps.Colonias.urls')),
+
+    path('login', views.login_view, name = 'login'),
+    path('', views.login_view),
 
 ]

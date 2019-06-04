@@ -18,6 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',include('Apps.Usuarios.urls')),
 
     # LAS APLICACIONES SE ENCUENTRAN COMENTADAS
     # SI LAS OCUPAS, DESCOMENTALAS
