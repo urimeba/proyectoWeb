@@ -1,4 +1,5 @@
-from django.shortcuts import render, HttpResponse, JsonResponse
+from django.shortcuts import render, HttpResponse
+from django.http import JsonResponse
 import json
 from Apps.Colonias import models as models_colonias
 
