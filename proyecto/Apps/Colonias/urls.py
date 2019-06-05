@@ -15,16 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from Apps.Colonias import views as views_colonias
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-
-    # LAS APLICACIONES SE ENCUENTRAN COMENTADAS
-    # SI LAS OCUPAS, DESCOMENTALAS
-    # path('Categorias', include('Apps.Categorias.urls')),
-    # path('Comentarios', include('Apps.Comentarios.urls')),
-    # path('Publicaciones', include('Apps.Publicaciones.urls')),
-    # path('Usuarios', include('Apps.Usuarios.urls')),
-    # path('Colonias', include('Apps.Colonias.urls')),
-
+    path('obtenerColonias', views_colonias.obtenerColonias, name="obtenerColonias"),
 ]
