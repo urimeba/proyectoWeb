@@ -20,7 +20,6 @@
 //     xhttp.send(datos);
 // }
 
-
 function toggle(x) {
     var form = document.getElementById('form');
     var logIn = document.getElementById('logIn');
@@ -67,7 +66,15 @@ logIn = () => {
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-            alert(xhttp.responseText);
+            
+            if(xhttp.responseText=="Inicio de sesion correcto")
+            {
+                alert("Seras redirigido a la pagina principal")
+            }
+            else
+            {
+                alert(xhttp.responseText);
+            }
         }
     };
     xhttp.send('usuario='+user+"&contraseña="+pass);
