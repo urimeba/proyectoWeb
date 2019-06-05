@@ -1,4 +1,5 @@
 from django.db import models
+from Apps.Colonias import models as models_colonias
 
 # Create your models here.
 class Categorias(models.Model):

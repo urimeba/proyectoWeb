@@ -18,11 +18,6 @@ from django.urls import path, include
 from Apps.Usuarios import views as views_usuarios
 
 urlpatterns = [
-    # LAS VIEWS SE ENCUENTRAN COMENTADAS
-    # SI LAS OCUPAS, DESCOMENTALAS
-    # path('Categorias', include('Apps.Categorias.urls')),
     path('registrarUsuario', views_usuarios.registrar_usuario, name="registrarUsuario"),
     path('iniciarSesion', views_usuarios.iniciarSesion, name="iniciarSesion"),
-
-
 ]
