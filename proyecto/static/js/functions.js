@@ -27,8 +27,9 @@ getAddress = () => {
     xhttp.open('POST', url, true);
     xhttp.setRequestHeader('X-CSRFToken', cookie);
     xhttp.onreadystatechange = () => {
-        if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
+        if (xhttp.readyState == 4 && xhttp.status == 200) 
+        {
+            console.log(xhttp.responseText);
         }
     };
     xhttp.send();

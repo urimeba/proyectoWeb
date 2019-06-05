@@ -11,5 +11,5 @@ def obtenerColonias(request):
     for colonia in colonias:
         respuesta.append(colonia.nombre)
 
-    return JsonResponse({respuesta})
+    return JsonResponse({'colonias':respuesta})
 

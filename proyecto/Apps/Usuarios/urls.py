@@ -18,8 +18,10 @@ from django.urls import path, include
 from Apps.Usuarios import views as views_usuarios
 
 urlpatterns = [
-    path('registrarUsuario', views_usuarios.registrar_usuario, name="registrarUsuario"),
-    path('iniciarSesion', views_usuarios.iniciarSesion, name="iniciarSesion"),
     path('', views_usuarios.login_view),
     path('login', views_usuarios.login_view, name = 'login'),
+    path('registrarUsuario', views_usuarios.registrar_usuario, name="registrarUsuario"),
+    path('iniciarSesion', views_usuarios.iniciarSesion, name="iniciarSesion"),
+    
+    
 ]

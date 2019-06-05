@@ -22,7 +22,6 @@ urlpatterns = [
     path('Categorias', include('Apps.Categorias.urls')),
     path('Comentarios', include('Apps.Comentarios.urls')),
     path('Publicaciones', include('Apps.Publicaciones.urls')),
-    # path('Usuarios', include('Apps.Usuarios.urls')),
     path('Colonias', include('Apps.Colonias.urls')),
 
 ]
