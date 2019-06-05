@@ -19,16 +19,16 @@
             <h1 class="marginB20">Iniciar sesión</h1>
 
             <div class="form__group">
-                <input type="text" placeholder="Nombre de usuario:" name="user" class="form__input">
+                <input type="text" placeholder="Nombre de usuario:" name="user" class="form__input" id="userL">
                 <label for="user" class="form__label">Nombre de usuario:</label>
             </div>
 
             <div class="form__group">
-                <input type="password" placeholder="Contraseña:" name="pass" class="form__input">
+                <input type="password" placeholder="Contraseña:" name="pass" class="form__input" id="passL">
                 <label for="pass" class="form__label">Contraseña:</label>
             </div>
 
-            <button class="sub marginB20">Iniciar sesión</button>
+            <button class="sub marginB20" onclick="logIn()" data-url="{% url 'iniciarSesion' %}" id="buttonLogIn">Iniciar sesión</button>
 
             <button onclick="getAddress()" data-url="{% url 'obtenerColonias' %}" class="toggle" value="Play" id="col">Registrame</button>
         </div>
