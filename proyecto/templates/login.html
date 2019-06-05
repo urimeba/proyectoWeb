@@ -11,13 +11,13 @@
 </head>
 <body>
     <div class="view">
-        <button onclick="toggle(this)" class="toggle" value="Play">Registrar</button>
-
         <div class="form" id="form">
             
         </div>
 
         <div class="logIn" id="logIn">
+            <h1 class="marginB20">Iniciar sesión</h1>
+
             <div class="form__group">
                 <input type="text" placeholder="Nombre de usuario:" name="user" class="form__input">
                 <label for="user" class="form__label">Nombre de usuario:</label>
@@ -28,21 +28,48 @@
                 <label for="pass" class="form__label">Contraseña:</label>
             </div>
 
-            <button>Iniciar sesión</button>
+            <button class="sub marginB20">Iniciar sesión</button>
+
+            <button onclick="getAddress()" data-url="{% url 'obtenerColonias' %}" class="toggle" value="Play" id="col">Registrame</button>
         </div>
 
         <div class="signUp fadeOut2" id="signUp">
-            <div class="form__group">
+            <h1 class="marginB20">Registrar</h1>
+
+            <div class="form__group--small">
                 <input type="text" placeholder="Nombre de usuario:" name="user" class="form__input">
                 <label for="user" class="form__label">Nombre de usuario:</label>
             </div>
+
+            <div class="form__group--small">
+                <input type="text" placeholder="Nombre:" name="name" class="form__input">
+                <label for="name" class="form__label">Nombre:</label>
+            </div>
+
+            <div class="form__group--small">
+                <input type="text" placeholder="Apellido:" name="last" class="form__input">
+                <label for="last" class="form__label">Apellido:</label>
+            </div>
     
-            <div class="form__group">
+            <div class="form__group--small">
                 <input type="password" placeholder="Contraseña:" name="pass" class="form__input">
                 <label for="pass" class="form__label">Contraseña:</label>
             </div>
 
-            <button>LOL</button>
+            <div class="form__group--small">
+                <input type="password" placeholder="Confirmar contraseña:" name="cpass" class="form__input">
+                <label for="cpass" class="form__label">Confirmar contraseña:</label>
+            </div>
+
+            <div class="form__group--small">
+                <select name="address" id="address" class="form__input">
+                    <option value="null" selected>Colonia:</option>
+                </select>
+            </div>
+
+            <button class="sub marginB20 marginT20">Registrar</button>
+
+            <button onclick="toggle(this)"" class="toggle" value="Play">Ya tengo cuenta</button>
         </div>
     </div>
 </body>
