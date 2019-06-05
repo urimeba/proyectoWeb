@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from Apps.Usuarios import models as models_usuarios
 from Apps.Colonias import models as models_colonias
+import json
 
 # Create your views here.
 
@@ -43,27 +44,21 @@ def registrar_usuario(request):
 
 
 def iniciarSesion(request):
-    data = request.POST.get('usuario')
-    print(data)
-    return HttpResponse("Hola")
+    usuario = request.POST.get('usuario')
+    contraseña = request.POST.get('contraseña')
+    user = authenticate(username=usuario, password=contraseña)
 
-    # usuario = request.POST.get('usuario')
-    # contraseña = request.POST.get('contraseña')
-
-    # user = authenticate(username=usuario, password=contraseña)
-
-    # if user is not None:
-    #     if user.is_active:
-    #         login(request, user)
-
-    #         id_colonia = models_usuarios.Usuarios.get(id=user.id).colonia_id
-    #         request.session['colonia'] = id_colonia
-
-    #         return HttpResponse("Inicio de sesion correcto")
-    #     else:
-    #         return HttpResponse("Error: datos incorrectos")
-    # else:
-    #     return HttpResponse("Error: datos incorrectos")
+    if user is not None:
+        
+        if user.is_active:
+            login(request, user)
+            id_colonia = models_usuarios.Usuarios.objects.get(id=user.id).colonia_id
+            request.session['colonia'] = id_colonia
+            return HttpResponse("Inicio de sesion correcto")
+        else:
+            return HttpResponse("Error: datos incorrectos")
+    else:
+        return HttpResponse("Error: datos incorrectos")
 
 def cerrarSesion(request):
     del request.session['colonia']

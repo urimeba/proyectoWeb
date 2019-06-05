@@ -1,3 +1,26 @@
+// MANERA DE ENVIAR UN JSON A TRAVES DE AJAX
+// logIn = () => {
+//     var user = document.getElementById('userL').value
+//     var pass = document.getElementById('passL').value
+//     var data = {}
+//     data['usuario'] = user
+//     data['contraseña'] = pass
+//     var url = document.getElementById('buttonLogIn').dataset.url
+//     var xhttp = new XMLHttpRequest();
+//     var cookie = getCookie('csrftoken');
+//     xhttp.open('POST', url, true);
+//     xhttp.setRequestHeader('X-CSRFToken', cookie);
+//     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//     xhttp.onreadystatechange = () => {
+//         if (xhttp.readyState == 4 && xhttp.status == 200) {
+//             console.log(data);
+//         }
+//     };
+//     datos = "json_name=" + JSON.stringify({name:"John Rambo", time:"2pm"});
+//     xhttp.send(datos);
+// }
+
+
 function toggle(x) {
     var form = document.getElementById('form');
     var logIn = document.getElementById('logIn');
@@ -36,10 +59,6 @@ getAddress = () => {
 logIn = () => {
     var user = document.getElementById('userL').value
     var pass = document.getElementById('passL').value
-    var data = {
-        usuario: user,
-        contraseña: pass
-    }
     var url = document.getElementById('buttonLogIn').dataset.url
     var xhttp = new XMLHttpRequest();
     var cookie = getCookie('csrftoken');
@@ -48,22 +67,10 @@ logIn = () => {
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-            console.log("Hola");
+            alert(xhttp.responseText);
         }
     };
-    xhttp.send('usuario='+user);
-    // let fetchData = { 
-    //     method: 'POST', 
-    //     body: data,
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         'X-CSRFToken': cookie,
-    //     },
-    // }
-
-    // fetch(url, fetchData).then(function() {
-    //     console.log("Entra");
-    // });
+    xhttp.send('usuario='+user+"&contraseña="+pass);
 }
 
 function getCookie(name) {
