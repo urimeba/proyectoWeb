@@ -65,9 +65,5 @@ def cerrarSesion(request):
     del request.session['colonia']
     return redirect('/')
 
-
-
-
-
-    
-
+def login_view(request):     
+    return render(request,'login.html')
