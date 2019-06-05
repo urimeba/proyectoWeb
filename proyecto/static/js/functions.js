@@ -45,13 +45,13 @@ logIn = () => {
     var cookie = getCookie('csrftoken');
     xhttp.open('POST', url, true);
     xhttp.setRequestHeader('X-CSRFToken', cookie);
-    xhttp.setRequestHeader("Content-type", "application/json; charset=utf-8");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             console.log("Hola");
         }
     };
-    xhttp.send('data='+JSON.stringify(data));
+    xhttp.send('usuario='+user);
     // let fetchData = { 
     //     method: 'POST', 
     //     body: data,

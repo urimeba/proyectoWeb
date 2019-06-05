@@ -43,23 +43,27 @@ def registrar_usuario(request):
 
 
 def iniciarSesion(request):
-    usuario = request.POST.get('usuario')
-    contraseña = request.POST.get('contraseña')
+    data = request.POST.get('usuario')
+    print(data)
+    return HttpResponse("Hola")
 
-    user = authenticate(username=usuario, password=contraseña)
+    # usuario = request.POST.get('usuario')
+    # contraseña = request.POST.get('contraseña')
 
-    if user is not None:
-        if user.is_active:
-            login(request, user)
+    # user = authenticate(username=usuario, password=contraseña)
 
-            id_colonia = models_usuarios.Usuarios.get(id=user.id).colonia_id
-            request.session['colonia'] = id_colonia
+    # if user is not None:
+    #     if user.is_active:
+    #         login(request, user)
 
-            return HttpResponse("Inicio de sesion correcto")
-        else:
-            return HttpResponse("Error: datos incorrectos")
-    else:
-        return HttpResponse("Error: datos incorrectos")
+    #         id_colonia = models_usuarios.Usuarios.get(id=user.id).colonia_id
+    #         request.session['colonia'] = id_colonia
+
+    #         return HttpResponse("Inicio de sesion correcto")
+    #     else:
+    #         return HttpResponse("Error: datos incorrectos")
+    # else:
+    #     return HttpResponse("Error: datos incorrectos")
 
 def cerrarSesion(request):
     del request.session['colonia']
