@@ -1,24 +1,24 @@
-// MANERA DE ENVIAR UN JSON A TRAVES DE AJAX
-// logIn = () => {
-//     var user = document.getElementById('userL').value
-//     var pass = document.getElementById('passL').value
-//     var data = {}
-//     data['usuario'] = user
-//     data['contraseña'] = pass
-//     var url = document.getElementById('buttonLogIn').dataset.url
-//     var xhttp = new XMLHttpRequest();
-//     var cookie = getCookie('csrftoken');
-//     xhttp.open('POST', url, true);
-//     xhttp.setRequestHeader('X-CSRFToken', cookie);
-//     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//     xhttp.onreadystatechange = () => {
-//         if (xhttp.readyState == 4 && xhttp.status == 200) {
-//             console.log(data);
-//         }
-//     };
-//     datos = "json_name=" + JSON.stringify({name:"John Rambo", time:"2pm"});
-//     xhttp.send(datos);
-// }
+//MANERA DE ENVIAR UN JSON A TRAVES DE AJAX
+logIn = () => {
+    var user = document.getElementById('userL').value
+    var pass = document.getElementById('passL').value
+    var data = {}
+    data['usuario'] = user
+    data['contraseña'] = pass
+    var url = document.getElementById('buttonLogIn').dataset.url
+    var xhttp = new XMLHttpRequest();
+    var cookie = getCookie('csrftoken');
+    xhttp.open('POST', url, true);
+    xhttp.setRequestHeader('X-CSRFToken', cookie);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.onreadystatechange = () => {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            console.log(xhttp.responseText);
+        }
+    };
+    datos = "json_name=" + JSON.stringify(data);
+    xhttp.send(datos);
+}
 
 function toggle(x) {
     var form = document.getElementById('form');
@@ -55,38 +55,12 @@ getAddress = () => {
     xhttp.send();
 }
 
-logIn = () => {
-    var user = document.getElementById('userL').value
-    var pass = document.getElementById('passL').value
-    var url = document.getElementById('buttonLogIn').dataset.url
-    var xhttp = new XMLHttpRequest();
-    var cookie = getCookie('csrftoken');
-    xhttp.open('POST', url, true);
-    xhttp.setRequestHeader('X-CSRFToken', cookie);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.onreadystatechange = () => {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            
-            if(xhttp.responseText=="Inicio de sesion correcto")
-            {
-                alert("Seras redirigido a la pagina principal")
-            }
-            else
-            {
-                alert(xhttp.responseText);
-            }
-        }
-    };
-    xhttp.send('usuario='+user+"&contraseña="+pass);
-}
-
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie != '') {
         var cookies = document.cookie.split(';');
         for (var i = 0; i < cookies.length; i++) {
             var cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
             if (cookie.substring(0, name.length + 1) == (name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                 break;
