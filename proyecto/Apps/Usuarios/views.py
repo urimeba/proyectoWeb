@@ -44,8 +44,6 @@ def registrar_usuario(request):
 
 
 def iniciarSesion(request):
-    # usuario = request.POST.get('usuario')
-    # contraseña = request.POST.get('contraseña')
     datos = request.POST.get('json_name')
     datos = json.loads(datos)
     usuario = datos['usuario']
