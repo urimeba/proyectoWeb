@@ -39,6 +39,7 @@ def registrar_usuario(request):
             
             # AGREGANDO EL USUARIO A USUARIOS_USUARIOS
             usuario_usuario = models_usuarios.Usuarios(colonia_id=id_colonia, usuario_id=id_usuario)
+            usuario_usuario.save()
             return HttpResponse("Registro exitoso")
         except Exception as e:
             print(e)
