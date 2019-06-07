@@ -1,0 +1,6 @@
+
+*.pyc
+
+proyecto/Apps/Categorias/__pycache__/
+
+proyecto/Apps/Colonias/__pycache__/
