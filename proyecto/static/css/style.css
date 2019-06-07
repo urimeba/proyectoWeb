@@ -75,9 +75,15 @@ body {
 }
 
 .toggle {
-    top: 50%;
-    right: 50%;
-    z-index: 1000;
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    outline: none;
+    color:#097AFF;
+}
+
+.toggle:hover{
+    color: #1d2b69;
 }
 
 .form__group:not(:last-child) {
@@ -89,10 +95,10 @@ body {
 }
 
 .form__input {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-family: inherit;
     color: inherit;
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.8rem;
     border-radius: 2px;
     background-color: rbga(#fff, 0.5);
     border: none;
@@ -119,7 +125,7 @@ body {
 }
 
 .form__label {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
     margin-left: 2rem;
     margin-top: .7rem;
@@ -161,6 +167,30 @@ body {
     transition: all 1.2s;
 }
 
-.Blue {
-    background-color: blue;
+.btnAnimation, .btnAnimation:link, .btnAnimation:visited{
+    -moz-transition: all .1s;
+    -webkit-transition: all .1s;
+    transition: all .1s;
+    cursor: pointer;
+}
+
+.btnAnimation:hover{
+    -moz-transform: translateX(-3px);
+    -webkit-transform: translateX(-3px);
+    transform: translateY(-3px);
+    box-shadow: 0 0.6rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btnAnimation:hover::after {
+    -moz-transform: scaleX(1.4) scaleY(1.6);
+    -webkit-transform: scaleX(1.4) scaleY(1.6);
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btnAnimation:active{
+    -moz-transform: translateX(-1px);
+    -webkit-transform: translateX(-1px);
+    transform: translateY(-1px);
+    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.2);
 }

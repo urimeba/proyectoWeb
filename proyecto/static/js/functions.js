@@ -1,30 +1,76 @@
 //MANERA DE ENVIAR UN JSON A TRAVES DE AJAX
 logIn = () => {
-    var user = document.getElementById('userL').value
-    var pass = document.getElementById('passL').value
-    var data = {}
-    data['usuario'] = user
-    data['contraseña'] = pass
-    var url = document.getElementById('buttonLogIn').dataset.url
-    var xhttp = new XMLHttpRequest();
-    var cookie = getCookie('csrftoken');
-    xhttp.open('POST', url, true);
-    xhttp.setRequestHeader('X-CSRFToken', cookie);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.onreadystatechange = () => {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            console.log(xhttp.responseText);
-        }
-    };
-    datos = "json_name=" + JSON.stringify(data);
-    xhttp.send(datos);
+    var user = document.getElementById('userL').value;
+    var pass = document.getElementById('passL').value;
+    if(user != "" && pass != ""){
+        var data = {}
+        data['usuario'] = user;
+        data['contraseña'] = pass;
+        var url = document.getElementById('buttonLogIn').dataset.url;
+        var xhttp = new XMLHttpRequest();
+        var cookie = getCookie('csrftoken');
+        xhttp.open('POST', url, true);
+        xhttp.setRequestHeader('X-CSRFToken', cookie);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.onreadystatechange = () => {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                console.log(xhttp.responseText);
+            }
+        };
+        datos = "json_name=" + JSON.stringify(data);
+        xhttp.send(datos);
+    }else{
+        alert("No podemos identificarte si no escribes tu usuario y contraseña");
+    }
 }
 
-function toggle(x) {
+signUp = () => {
+    var user = document.getElementById('userS').value;
+    var name = document.getElementById('nameS').value;
+    var last = document.getElementById('lastS').value;
+    var mail = document.getElementById('mailS').value;
+    var pass = document.getElementById('passS').value;
+    var cpass = document.getElementById('cpassS').value;
+    var address = document.getElementById('address').value;
+    if(user != "" && name != "" && last != "" && pass != "" && cpass != "" && address != "" && mail != ""){
+        if(pass == cpass){
+            if(address != 0){
+                var data = {}
+                data['usuario'] = user;
+                data['nombre'] = name;
+                data['apellido'] = last;
+                data['contraseña'] = pass;
+                data['colonia'] = address;
+                data['correo'] = mail;
+                var url = document.getElementById('buttonSignUp').dataset.url;
+                var xhttp = new XMLHttpRequest();
+                var cookie = getCookie('csrftoken');
+                xhttp.open('POST', url, true);
+                xhttp.setRequestHeader('X-CSRFToken', cookie);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.onreadystatechange = () => {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        console.log(xhttp.responseText);
+                    }
+                };
+                datos = "json_name=" + JSON.stringify(data);
+                xhttp.send(datos);
+            }else{
+                alert("Debe escoger una colonia");
+            }
+        }else{
+            alert("Las contraseñas no coinciden");
+        }
+    }else{
+        alert("No puede haber campos vacios");
+    }
+}
+
+toggle = (x) => {
     var form = document.getElementById('form');
     var logIn = document.getElementById('logIn');
     var signUp = document.getElementById('signUp');
-    if (x.innerHTML === 'Registrame') {
+    if (x.innerHTML === 'Regístrame') {
         // x.innerHTML = 'Iniciar sesión';
         form.classList.add('form__transition');
         logIn.classList.remove('fadeIn');
@@ -45,17 +91,30 @@ getAddress = () => {
     var url = document.getElementById('col').dataset.url
     var xhttp = new XMLHttpRequest();
     var cookie = getCookie('csrftoken');
+    var addresses = 0;
     xhttp.open('POST', url, true);
     xhttp.setRequestHeader('X-CSRFToken', cookie);
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-            xhttp.responseText
+            addresses = xhttp.responseText;
+            showAddress(addresses);
         }
     };
     xhttp.send();
 }
 
-function getCookie(name) {
+showAddress = (x) => {
+    var a = JSON.parse(x);
+    var select = document.getElementById('address');
+    for(var i = 0; i < a.colonias.length; i++){
+        var option = document.createElement('option');
+        option.value = a.colonias[i];
+        option.innerHTML = a.colonias[i];
+        select.appendChild(option);
+    }
+}
+
+getCookie = (name) => {
     var cookieValue = null;
     if (document.cookie && document.cookie != '') {
         var cookies = document.cookie.split(';');
@@ -68,4 +127,8 @@ function getCookie(name) {
         }
     }
     return cookieValue;
+}
+
+key = (x) => {
+    x.value = x.value.replace(" ", "");
 }

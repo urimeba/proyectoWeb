@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="{% static 'js/functions.js' %}"></script>
     <title>QroChan</title>
 </head>
-<body>
+<body onload="getAddress()">
     <div class="view">
         <div class="form" id="form">
             
@@ -19,55 +20,60 @@
             <h1 class="marginB20">Iniciar sesión</h1>
 
             <div class="form__group">
-                <input type="text" placeholder="Nombre de usuario:" name="user" class="form__input" id="userL">
+                <input type="text" placeholder="Nombre de usuario:" name="user" class="form__input" id="userL" oninput="key(this)">
                 <label for="user" class="form__label">Nombre de usuario:</label>
             </div>
 
             <div class="form__group">
-                <input type="password" placeholder="Contraseña:" name="pass" class="form__input" id="passL">
+                <input type="password" placeholder="Contraseña:" name="pass" class="form__input" id="passL" oninput="key(this)">
                 <label for="pass" class="form__label">Contraseña:</label>
             </div>
 
-            <button class="sub marginB20" onclick="logIn()" data-url="{% url 'iniciarSesion' %}" id="buttonLogIn">Iniciar sesión</button>
+            <button class="sub marginB20 btnAnimation" onclick="logIn()" data-url="{% url 'iniciarSesion' %}" id="buttonLogIn">Iniciar sesión</button>
 
-            <button onclick="getAddress()" data-url="{% url 'obtenerColonias' %}" class="toggle" value="Play" id="col">Registrame</button>
+            <button onclick="toggle(this)" data-url="{% url 'obtenerColonias' %}" class="toggle" value="Play" id="col">Regístrame</button>
         </div>
 
         <div class="signUp fadeOut2" id="signUp">
             <h1 class="marginB20">Registrar</h1>
 
             <div class="form__group--small">
-                <input type="text" placeholder="Nombre de usuario:" name="user" class="form__input">
+                <input type="text" placeholder="Nombre de usuario:" name="user" class="form__input" id="userS" oninput="key(this)">
                 <label for="user" class="form__label">Nombre de usuario:</label>
             </div>
 
             <div class="form__group--small">
-                <input type="text" placeholder="Nombre:" name="name" class="form__input">
+                <input type="text" placeholder="Nombre:" name="name" class="form__input" id="nameS" oninput="key(this)">
                 <label for="name" class="form__label">Nombre:</label>
             </div>
 
             <div class="form__group--small">
-                <input type="text" placeholder="Apellido:" name="last" class="form__input">
+                <input type="text" placeholder="Apellido:" name="last" class="form__input" id="lastS" oninput="key(this)">
                 <label for="last" class="form__label">Apellido:</label>
+            </div>
+
+            <div class="form__group--small">
+                <input type="email" placeholder="Correo:" name="mail" class="form__input" id="mailS" oninput="key(this)">
+                <label for="mail" class="form__label">Correo:</label>
             </div>
     
             <div class="form__group--small">
-                <input type="password" placeholder="Contraseña:" name="pass" class="form__input">
+                <input type="password" placeholder="Contraseña:" name="pass" class="form__input" id="passS" oninput="key(this)">
                 <label for="pass" class="form__label">Contraseña:</label>
             </div>
 
             <div class="form__group--small">
-                <input type="password" placeholder="Confirmar contraseña:" name="cpass" class="form__input">
+                <input type="password" placeholder="Confirmar contraseña:" name="cpass" class="form__input" id="cpassS" oninput="key(this)">
                 <label for="cpass" class="form__label">Confirmar contraseña:</label>
             </div>
 
             <div class="form__group--small">
-                <select name="address" id="address" class="form__input">
-                    <option value="null" selected>Colonia:</option>
+                <select name="address" id="address" class="form__input" id="address">
+                    <option value="0" selected>Colonia:</option>
                 </select>
             </div>
 
-            <button class="sub marginB20 marginT20">Registrar</button>
+            <button onclick="signUp()" class="sub marginB20 marginT20 btnAnimation" id="buttonSignUp" data-url="{% url 'registrarUsuario' %}">Registrar</button>
 
             <button onclick="toggle(this)"" class="toggle" value="Play">Ya tengo cuenta</button>
         </div>

@@ -8,12 +8,14 @@ import json
 # Create your views here.
 
 def registrar_usuario(request):
-    colonia = request.POST.get('colonia')
-    usuario = request.POST.get('usuario')
-    contraseña = request.POST.get('contraseña')
-    nombre = request.POST.get('nombre')
-    apellido = request.POST.get('apellido')
-    correo = request.POST.get('correo')
+    datos = request.POST.get('json_name')
+    datos = json.loads(datos)
+    colonia = datos['colonia']
+    usuario = datos['usuario']
+    contraseña = datos['contraseña']
+    nombre = datos['nombre']
+    apellido = datos['apellido']
+    correo = datos['correo']
 
     # VERIFICANDO QUE EXISTA UN USUARIO CON ESE CORREO.
     # SI NO EXISTE, SE VA HACIA EL EXCEPTION
@@ -32,7 +34,7 @@ def registrar_usuario(request):
             usuario.save()
 
             # OBTENEMOS EL ID DE LA COLONIA ELEGIDA Y EL ID DEL USUARIO CREADO AQUI ARRIBA
-            id_colonia = models_colonias.Colonias.get(nombre=colonia).id
+            id_colonia = models_colonias.Colonias.objects.get(nombre=colonia).id
             id_usuario = usuario.id
             
             # AGREGANDO EL USUARIO A USUARIOS_USUARIOS
