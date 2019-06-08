@@ -19,3 +19,19 @@ INSERT INTO `usuarios_usuarios`
 (`colonia_id`, `usuario_id`)
 VALUES
 (1,1)
+
+--INSERTANDO CATEGORIAS
+INSERT INTO `categorias_categorias`
+(`titulo`, `descripcion`) 
+VALUES 
+("Seguridad","Asuntos relacionados con la seguridad de la colonia, tales como asaltos, robos en casa/habitaciones, personas o vehiculos sospechosos");
+
+INSERT INTO `categorias_categorias`
+(`titulo`, `descripcion`) 
+VALUES 
+("Drenaje","Asuntos relacionados con coladeras publicas y privadas, ubicadas en cada hogar, asi como de agua potable");
+
+INSERT INTO `categorias_categorias`
+(`titulo`, `descripcion`) 
+VALUES 
+("Alumbrado Publico","Falta o falla de alumbrado dentro de calles partes de la colonia o aledañas");

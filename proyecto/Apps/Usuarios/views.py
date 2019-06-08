@@ -69,16 +69,12 @@ def iniciarSesion(request):
             request.session['colonia'] = id_colonia
             print("Inicio de sesion correcto")
             respuesta = True
-            # return HttpResponse(True)
         else: 
             print("Datos incorrectos 1")
             respuesta = False
-            # return HttpResponse("Error: datos incorrectos")
     else:
         print("Datos incorrectos 2")
         respuesta = False
-        # return HttpResponse("Error: datos incorrectos")
-    
     return HttpResponse(respuesta)
 
 def cerrarSesion(request):
