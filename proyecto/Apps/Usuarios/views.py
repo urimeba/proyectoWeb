@@ -53,19 +53,29 @@ def iniciarSesion(request):
     datos = json.loads(datos)
     usuario = datos['usuario']
     password = datos['contraseña']
+    print(usuario)
+    print(password)
     user = authenticate(username=usuario, password=password)
+    respuesta = ""
 
     if user is not None:
-        
         if user.is_active:
             login(request, user)
             id_colonia = models_usuarios.Usuarios.objects.get(id=user.id).colonia_id
             request.session['colonia'] = id_colonia
-            return HttpResponse(True)
+            print("Inicio de sesion correcto")
+            respuesta = True
+            # return HttpResponse(True)
         else: 
-            return HttpResponse("Error: datos incorrectos")
+            print("Datos incorrectos 1")
+            respuesta = False
+            # return HttpResponse("Error: datos incorrectos")
     else:
-        return HttpResponse("Error: datos incorrectos")
+        print("Datos incorrectos 2")
+        respuesta = False
+        # return HttpResponse("Error: datos incorrectos")
+    
+    return HttpResponse(respuesta)
 
 def cerrarSesion(request):
     del request.session['colonia']

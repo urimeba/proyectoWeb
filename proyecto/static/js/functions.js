@@ -14,10 +14,15 @@ logIn = () => {
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.onreadystatechange = () => {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
-                if(xhttp.responseText)
+                console.log(xhttp.responseText)
+                if(xhttp.responseText=="True")
                 {
-                    console.log(xhttp.responseText);
-                    window.location.href="Categorias/obtenerCategorias"
+                    alert(xhttp.responseText);
+                    window.location.href="Categorias/obtenerCategorias";
+                }
+                else
+                {
+                    alert("Favor de verificar tus datos")
                 }
                 
             }
