@@ -17,7 +17,7 @@ logIn = () => {
                 if(xhttp.responseText)
                 {
                     console.log(xhttp.responseText);
-                    window.location.href="Publicaciones/index"
+                    window.location.href="Categorias/obtenerCategorias"
                 }
                 
             }
@@ -55,7 +55,8 @@ signUp = () => {
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.onreadystatechange = () => {
                     if (xhttp.readyState == 4 && xhttp.status == 200) {
-                        console.log(xhttp.responseText);
+                        // console.log(xhttp.responseText);
+                        alert(xhttp.responseText);
                     }
                 };
                 datos = "json_name=" + JSON.stringify(data);

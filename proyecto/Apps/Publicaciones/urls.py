@@ -18,5 +18,4 @@ from django.urls import path, include
 from Apps.Publicaciones import views as views_publicaciones
 
 urlpatterns = [
-   path('index', views_publicaciones.index, name="index"),
 ]
