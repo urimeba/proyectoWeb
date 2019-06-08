@@ -3,11 +3,15 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from Apps.Usuarios import models as models_usuarios
 from Apps.Colonias import models as models_colonias
+from Apps.Categorias import views as views_categorias
 import json
 
 # Create your views here.
 def login_view(request):     
-    return render(request,'login.html')
+    if 'colonia' in request.session:
+        return redirect(views_categorias.obtenerCategorias)
+    else:
+        return render(request,'login.html')
 
 def registrar_usuario(request):
     datos = request.POST.get('json_name')
