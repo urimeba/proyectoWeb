@@ -6,6 +6,8 @@ from Apps.Colonias import models as models_colonias
 import json
 
 # Create your views here.
+def login_view(request):     
+    return render(request,'login.html')
 
 def registrar_usuario(request):
     datos = request.POST.get('json_name')
@@ -59,7 +61,7 @@ def iniciarSesion(request):
             login(request, user)
             id_colonia = models_usuarios.Usuarios.objects.get(id=user.id).colonia_id
             request.session['colonia'] = id_colonia
-            return HttpResponse("Inicio de sesion correcto")
+            return HttpResponse(True)
         else:
             return HttpResponse("Error: datos incorrectos")
     else:
@@ -69,5 +71,3 @@ def cerrarSesion(request):
     del request.session['colonia']
     return redirect('/')
 
-def login_view(request):     
-    return render(request,'login.html')

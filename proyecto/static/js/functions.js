@@ -14,7 +14,12 @@ logIn = () => {
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.onreadystatechange = () => {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
-                console.log(xhttp.responseText);
+                if(xhttp.responseText)
+                {
+                    console.log(xhttp.responseText);
+                    window.location.href="Publicaciones/index"
+                }
+                
             }
         };
         datos = "json_name=" + JSON.stringify(data);
