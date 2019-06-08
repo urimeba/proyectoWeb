@@ -62,7 +62,7 @@ def iniciarSesion(request):
             id_colonia = models_usuarios.Usuarios.objects.get(id=user.id).colonia_id
             request.session['colonia'] = id_colonia
             return HttpResponse(True)
-        else:
+        else: 
             return HttpResponse("Error: datos incorrectos")
     else:
         return HttpResponse("Error: datos incorrectos")
