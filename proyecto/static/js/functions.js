@@ -143,3 +143,43 @@ getCookie = (name) => {
 key = (x) => {
     x.value = x.value.replace(" ", "");
 }
+
+post = () => {
+    var p = 0;
+    var padre = document.getElementById('AbajoB');
+    var tarjeta = document.createElement('div');
+    tarjeta.classList.add('Tarjeta');
+
+    var info = document.createElement('div');
+    info.classList.add('info');
+    var info2 = document.createElement('div');
+    info2.classList.add('info2');
+    p = document.createElement('p');
+    p.innerHTML = "info";
+    info2.appendChild(p);
+    var fecha = document.createElement('div');
+    fecha.classList.add('fecha');
+    p = document.createElement('p');
+    p.innerHTML = "fecha";
+    fecha.appendChild(p);
+    info.appendChild(info2);
+    info.appendChild(fecha);
+
+    var titulo = document.createElement('div');
+    titulo.classList.add('titulo');
+    p = document.createElement('p');
+    p.innerHTML = "Titulo";
+    titulo.appendChild(p);
+
+    var contenido = document.createElement('div');
+    contenido.classList.add('contenido');
+    p = document.createElement('p');
+    p.innerHTML = "contenido";
+    contenido.appendChild(p);
+
+    tarjeta.appendChild(info);
+    tarjeta.appendChild(titulo);
+    tarjeta.appendChild(contenido);
+
+    padre.appendChild(tarjeta);
+}

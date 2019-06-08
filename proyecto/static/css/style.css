@@ -14,6 +14,7 @@ body {
     box-sizing: border-box;
     font-family: "Lato", sans-serif;
     font-weight: 400;
+    background-color: #E9EBEE;
 }
 
 .view {
@@ -31,6 +32,11 @@ body {
     background-color: #fff;
     clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
     transition: all 1.2s;
+}
+
+.title{
+    font-size: 5rem;
+    font-weight: bold;
 }
 
 .logIn {
@@ -193,4 +199,76 @@ body {
     -webkit-transform: translateX(-1px);
     transform: translateY(-1px);
     box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.Barra {
+    position: fixed;
+    background-color: #fff;
+    height: 5rem;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+
+.Derecha {
+    position: fixed;
+    right: 0;
+    width: 40vw;
+    height: 100vh;
+    padding-top: 5rem;
+    z-index: -999;
+    display: flex;
+    padding-left: 2.5rem;
+}
+
+.AbajoB {
+    position: absolute;
+    width: 60vw;
+    z-index: -1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 5rem;
+    padding-right: 2.5rem;
+    /* background-color: #E9EBEE; */
+}
+
+.Tarjeta {
+    width: 70%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.25);
+}
+
+.Tarjeta:hover{
+    border: 1px solid rgba(0,0,0,.5);
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.info2 {
+    flex-grow: 1;
+}
+
+.fecha {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.titulo {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.contenido {
+    width: 100%;
+    font-size: 1.4rem;
 }
