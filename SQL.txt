@@ -1,4 +1,4 @@
---INSERTANDO TRES COLONIAS 
+﻿--INSERTANDO TRES COLONIAS 
 INSERT INTO `colonias_colonias`
 (`nombre`, `codigopostal`, `referencias`) 
 VALUES 
@@ -35,3 +35,31 @@ INSERT INTO `categorias_categorias`
 (`titulo`, `descripcion`) 
 VALUES 
 ("Alumbrado Publico","Falta o falla de alumbrado dentro de calles partes de la colonia o aledañas");
+
+
+
+--INSERTANDO PUBLICACIONES
+INSERT INTO `publicaciones_publicaciones`
+(`titulo`, `descripcion`, `categoria_id`, `colonia_id`, `usuario_id`) 
+VALUES 
+('Coladera abierta', "Hola a todos. Solo para comentarles que dentro de la calle Benito Juarez se encuentra abierta una coladaera. Se ha puesto un cono para su visibilidad. Esto ya se ha reportado al municipio y estamos en espera de una respuesta y solucion. Favor de tener precaucion con ella.", 2,1,2);
+
+INSERT INTO `publicaciones_publicaciones`
+(`titulo`, `descripcion`, `categoria_id`, `colonia_id`, `usuario_id`) 
+VALUES 
+('Robo casa-habitacion reciente', "A todos los vecinos, favor de estar alertas en sus domicilios. En menos de dos semanas han ocurrido robos a casa-habitacion en un area pequeña de la colonia. Se cree que pudieran haber sido las mismas personas. Mantenganse alertas y sus casas seguras", 1,1,3);
+
+INSERT INTO `publicaciones_publicaciones`
+(`titulo`, `descripcion`, `categoria_id`, `colonia_id`, `usuario_id`) 
+VALUES 
+('Falta de alumbrado en Zaragoza', "El dia viernes, 15 de Junio, pasaremos a recoleccion de firmas para llevar el escrito al municipio para su valoracion, y asi obtener alumbrado publico dentro de la colonia en la calle Zaragoza, la cual es la principal y se vio afectadas por recientes lluvias. Favor de indicar en los comentarios la hora a la que pudieran para realizar la recoleccion a esa hora", 3,1,4);
+
+INSERT INTO `publicaciones_publicaciones`
+(`titulo`, `descripcion`, `categoria_id`, `colonia_id`, `usuario_id`) 
+VALUES 
+('Asaltos Puente Peatonal Santander', "Estos ultimos meses ha habido una serie de asaltos ocurridos dentro del puente peatonal de Santander, ubicado frente a la UAQ. Tomen sus precauciones para pasar: se comenta que el modus-operandi de estos sujetos es que uno viene en el camion (121) y se baja en esa parada, junto con los demas, mientras otro sujeto espera al otro lado del puente. En ese momento los dos suben y atrapan a la ultima persona por las dos salidas. Tome sus precauciones", 1,1,2);
+
+INSERT INTO `publicaciones_publicaciones`
+(`titulo`, `descripcion`, `categoria_id`, `colonia_id`, `usuario_id`) 
+VALUES 
+('Tiradero de agua de Vecinos Zaragoza', "Hola a todos, perdon por el titulo, pero se les pide atentamente a todos los vecinos, especialmente a los de la Avenida Zaragoza, esten alertas con sus tomas de agua. Esto debido a que estos ultimos dias ha habido una serie de fugas de agua dentro de sus hogares. Cuidemos el agua. De antemano, gracias.", 2,1,4);

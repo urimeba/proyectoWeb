@@ -79,5 +79,6 @@ def iniciarSesion(request):
 
 def cerrarSesion(request):
     del request.session['colonia']
+    request.session.flush()
     return redirect('/')
 

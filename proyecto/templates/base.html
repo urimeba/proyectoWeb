@@ -16,9 +16,15 @@
 			<p>Home</p>
 		</div>
 		<button onclick="post()">TEST</button>
+		<a href="{% url 'cerrarSesion' %}"><button>Cerrar Sesion</button></a>
 	</div>
 		
 	<div class="Derecha">
+		{% for categoria in categorias %}
+			<div style="width: 50px; height: 50px; background: red">
+				<a href="obtenerPostCategoria({{ categoria.id }})">Categoria: {{ categoria.titulo }}</a>
+			</div>
+		{% endfor %}
 				
 	</div>
 	
@@ -41,6 +47,31 @@
 				<p>En esta comunidad podras encontrar todo lo relacionado a tu comunidad, desde eventos hasta las noticias más importantes que estan ocurriendo al momento.</p>
 			</div>
 		</div>	
-	</div>	
+
+		{% for publicacion in publicaciones %}
+		<div class="Tarjeta">
+			<div class="info">
+				<div class="info2">
+					<p>Por: Qro-Chan</p>
+				</div>
+				<div class="fecha">
+					<p>Para {{ publicacion.colonia_id }}</p>
+				</div>
+			</div>
+					
+			<div class="titulo">
+				<h1>{{ publicacion.titulo }}</h1>
+			</div>
+
+			<div class="contenido">
+				<p>{{ publicacion.descripcion }}</p>
+			</div>
+		</div>
+		{% endfor %}
+
+		
+	</div>
+	
+	
 </body>
 </html>

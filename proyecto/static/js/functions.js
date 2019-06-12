@@ -17,7 +17,7 @@ logIn = () => {
                 console.log(xhttp.responseText)
                 if(xhttp.responseText=="True")
                 {
-                    alert(xhttp.responseText);
+                    alert("Sesion iniciada correctamente");
                     window.location.href="Categorias/obtenerCategorias";
                 }
                 else
