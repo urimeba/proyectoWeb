@@ -21,9 +21,11 @@
 		
 	<div class="Derecha">
 		{% for categoria in categorias %}
-			<div style="width: 50px; height: 50px; background: red">
-				<a href="obtenerPostCategoria({{ categoria.id }})">Categoria: {{ categoria.titulo }}</a>
+		<a href="{% url 'obtenerPostsCategoria' pk=categoria.id %}">
+			<div style="width: 50px; height: 50px; background: red" >
+				Categoria: {{ categoria.titulo }}
 			</div>
+		</a>
 		{% endfor %}
 				
 	</div>
@@ -49,13 +51,13 @@
 		</div>	
 
 		{% for publicacion in publicaciones %}
-		<div class="Tarjeta">
+		<div class="Tarjeta" >
 			<div class="info">
 				<div class="info2">
-					<p>Por: Qro-Chan</p>
+					<p>Por: {{ publicacion.usuario.usuario.username}}</p>
 				</div>
 				<div class="fecha">
-					<p>Para {{ publicacion.colonia_id }}</p>
+					<p>Para: <b>{{ publicacion.colonia.nombre }}</b></p>
 				</div>
 			</div>
 					
@@ -65,6 +67,11 @@
 
 			<div class="contenido">
 				<p>{{ publicacion.descripcion }}</p>
+			</div>
+
+			<div class="categoria">
+				<p>En: <b>{{ publicacion.categoria.titulo }}</b></p>
+
 			</div>
 		</div>
 		{% endfor %}
