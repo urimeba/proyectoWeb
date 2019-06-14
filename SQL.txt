@@ -63,3 +63,8 @@ INSERT INTO `publicaciones_publicaciones`
 (`titulo`, `descripcion`, `categoria_id`, `colonia_id`, `usuario_id`) 
 VALUES 
 ('Tiradero de agua de Vecinos Zaragoza', "Hola a todos, perdon por el titulo, pero se les pide atentamente a todos los vecinos, especialmente a los de la Avenida Zaragoza, esten alertas con sus tomas de agua. Esto debido a que estos ultimos dias ha habido una serie de fugas de agua dentro de sus hogares. Cuidemos el agua. De antemano, gracias.", 2,1,4);
+
+INSERT INTO `publicaciones_publicaciones`
+(`titulo`, `descripcion`, `categoria_id`, `colonia_id`, `usuario_id`) 
+VALUES 
+('Perros sin hogar', "Se hace la mas atenta invitacion a todos los habitantes de esta colonia a adoptar un perrito sin hogar, esto debido a la problematica actual de sobreproblacion de ellos. Ademas, llevaremos a cabo el traslado de todos los perritos a la veterinaria municipal el dia 30 de este mes, para su castracion. Si algun gusta apoyar con esta ultima actividad favor de comentar aqui, y si es posible, tambien su domicilio", 4,1,1);
