@@ -40,9 +40,11 @@
 	<div class="Derecha">
 		<div class="Derechita">
 			{% for categoria in categorias %}
+			<a href="{% url 'obtenerPostsCategoria' pk=categoria.id %}">
 			<div class="Categoria">
-				<a href="obtenerPostCategoria({{ categoria.id }})">{{ categoria.titulo }}</a>
+				{{ categoria.titulo }}
 			</div>
+			</a>
 			{% endfor %}
 		</div>
 	</div>
