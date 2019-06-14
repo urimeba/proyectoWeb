@@ -34,7 +34,7 @@ body {
     transition: all 1.2s;
 }
 
-.title{
+.title {
     font-size: 5rem;
     font-weight: bold;
 }
@@ -85,10 +85,10 @@ body {
     background-color: transparent;
     text-decoration: none;
     outline: none;
-    color:#097AFF;
+    color: #097AFF;
 }
 
-.toggle:hover{
+.toggle:hover {
     color: #1d2b69;
 }
 
@@ -173,14 +173,16 @@ body {
     transition: all 1.2s;
 }
 
-.btnAnimation, .btnAnimation:link, .btnAnimation:visited{
+.btnAnimation,
+.btnAnimation:link,
+.btnAnimation:visited {
     -moz-transition: all .1s;
     -webkit-transition: all .1s;
     transition: all .1s;
     cursor: pointer;
 }
 
-.btnAnimation:hover{
+.btnAnimation:hover {
     -moz-transform: translateX(-3px);
     -webkit-transform: translateX(-3px);
     transform: translateY(-3px);
@@ -194,7 +196,7 @@ body {
     opacity: 0;
 }
 
-.btnAnimation:active{
+.btnAnimation:active {
     -moz-transform: translateX(-1px);
     -webkit-transform: translateX(-1px);
     transform: translateY(-1px);
@@ -206,7 +208,24 @@ body {
     background-color: #fff;
     height: 5rem;
     width: 100%;
-    border-bottom: 1px solid rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    transition: all .2s;
+}
+
+.Barra:hover{
+    border-bottom: 1px solid #097AFF;
+}
+
+.Barraderecha{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Cerrar{
+    display: block;
+    height: 100%;
+    background-color: green;
 }
 
 .Derecha {
@@ -218,6 +237,38 @@ body {
     z-index: -999;
     display: flex;
     padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.Derechita {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 2rem;
+    height: 40%;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.Derechita:hover{
+    border: 1px solid #097AFF;
+}
+
+.Categoria{
+    width: 100%;
+    font-size: 2rem;
+    padding: 1rem 1.5rem;
+}
+
+.Categoria:hover{
+    background-color: lightgrey;
+}
+
+.Categoria > a{
+    text-decoration: none;
+    color: #000;
 }
 
 .AbajoB {
@@ -229,7 +280,6 @@ body {
     align-items: flex-end;
     padding-top: 5rem;
     padding-right: 2.5rem;
-    /* background-color: #E9EBEE; */
 }
 
 .Tarjeta {
@@ -240,11 +290,12 @@ body {
     padding: 1rem 2rem;
     margin-top: 2rem;
     border-radius: 10px;
-    border: 1px solid rgba(0,0,0,0.25);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    transition: all .2s;
 }
 
-.Tarjeta:hover{
-    border: 1px solid rgba(0,0,0,.5);
+.Tarjeta:hover {
+    border: 1px solid #097AFF;
 }
 
 .info {
@@ -271,4 +322,108 @@ body {
 .contenido {
     width: 100%;
     font-size: 1.4rem;
+}
+
+.navigation__checkbox {
+    display: none;
+}
+
+.navigation__button {
+    background-color: #fff;
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    bottom: 6rem;
+    left: 6rem;
+    border-radius: 50%;
+    z-index: 2000;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    transition: all .2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation__button:hover {
+    border: 1px solid #097AFF;
+}
+
+.navigation__icon{
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+.navigation__background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 6.5rem;
+    left: 6.5rem;
+    background-image: radial-gradient(#097AFF, #1d2b69);
+    z-index: 1000;
+    transition: all 0.8s;
+}
+
+.navigation__nav {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+    opacity: 0;
+    width: 0;
+    transition: all 0.8s;
+}
+
+.navigation__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+    width: 100%;
+}
+
+.navigation__item {
+    margin: 1rem;
+}
+
+.navigation__link:link,
+.navigation__link:visited {
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: 300;
+    padding: 1rem 2rem;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+    background-size: 220%;
+    transition: all .4s;
+}
+
+.navigation__link:link span,
+.navigation__link:visited span {
+    margin-right: 1.5rem;
+    display: inline-block;
+}
+
+.navigation__link:hover,
+.navigation__link:active {
+    background-position: 100%;
+    color: #55c57a;
+    transform: translateX(1rem);
+}
+
+.navigation__checkbox:checked~.navigation__background {
+    transform: scale(80);
+}
+
+.navigation__checkbox:checked~.navigation__nav {
+    opacity: 1;
+    width: 100%;
 }
