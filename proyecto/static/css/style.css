@@ -227,6 +227,11 @@ body {
     height: 35px;
     width: 35px;
     margin-left: .8rem;
+    transition: all 25s;
+
+}
+.Home>img:hover{
+    transform: rotate(3333deg);
 }
 
 .Home>h1 {
