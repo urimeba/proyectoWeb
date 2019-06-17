@@ -1,0 +1,27 @@
+
+
+		{% for publicacion in publicaciones %}
+		<div class="Tarjeta" >
+			<div class="info">
+				<div class="info2">
+					<p>Por: {{ publicacion.usuario.usuario.username}}</p>
+				</div>
+				<div class="fecha">
+					<p>Fecha: <b>{{ publicacion.fecha }}</b></p>
+				</div>
+			</div>
+					
+			<div class="titulo">
+				<h1>{{ publicacion.titulo }}</h1>
+			</div>
+
+			<div class="contenido">
+				<p>{{ publicacion.descripcion }}</p>
+			</div>
+
+			<div class="categoria">
+				<p>En: <b>{{ publicacion.categoria.titulo }}</b></p>
+
+			</div>
+		</div>
+		{% endfor %}

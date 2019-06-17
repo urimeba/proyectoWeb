@@ -58,6 +58,11 @@
 		
 	<div class="Derecha">
 		<div class="Derechita">
+				<div class="Categoria">
+						<a href="{% url 'obtenerCategorias' %}">
+						Más recientes
+						</a>
+					</div>
 			{% for categoria in categorias %}
 			<div class="Categoria">
 				<a href="{% url 'obtenerPostsCategoria' pk=categoria.id %}">
@@ -69,52 +74,8 @@
 	</div>
 	
 	<div class="AbajoB" id="AbajoB">
-		<div class="Tarjeta">
-			<div class="info">
-				<div class="info2">
-					<p>Por: Qro-Chan</p>
-				</div>
-				<div class="fecha">
-					<p>Para todos</p>
-				</div>
-			</div>
-					
-			<div class="titulo">
-				<h1>Bienvenido a nuestra comunidad</h1>
-			</div>
-
-			<div class="contenido">
-				<p>En esta comunidad podras encontrar todo lo relacionado a tu comunidad, desde eventos hasta las noticias más importantes que estan ocurriendo al momento.</p>
-			</div>
-		</div>	
-
-		{% for publicacion in publicaciones %}
-		<div class="Tarjeta" >
-			<div class="info">
-				<div class="info2">
-					<p>Por: {{ publicacion.usuario.usuario.username}}</p>
-				</div>
-				<div class="fecha">
-					<p>Para: <b>{{ publicacion.colonia.nombre }}</b></p>
-				</div>
-			</div>
-					
-			<div class="titulo">
-				<h1>{{ publicacion.titulo }}</h1>
-			</div>
-
-			<div class="contenido">
-				<p>{{ publicacion.descripcion }}</p>
-			</div>
-
-			<div class="categoria">
-				<p>En: <b>{{ publicacion.categoria.titulo }}</b></p>
-
-			</div>
-		</div>
-		{% endfor %}
-
 		
+
 	</div>
 	
 	
