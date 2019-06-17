@@ -1,3 +1,26 @@
+// CAMBIANDO LOS BOTONES
+
+function cambiandoBotones()
+{
+    // Get the container element
+    var btnContainer = document.getElementById("Derechita");
+
+    // Get all buttons with class="btn" inside the container
+    var btns = btnContainer.getElementsByClassName("Categoria");
+
+    // Loop through the buttons and add the active class to the current/clicked button
+    for (var i = 0; i < btns.length; i++) 
+    {
+    btns[i].addEventListener("click", function() 
+    {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+    });
+    }
+}
+
+
 //MANERA DE ENVIAR UN JSON A TRAVES DE AJAX
 logIn = () => {
     var user = document.getElementById('userL').value;
@@ -182,4 +205,25 @@ post = () => {
     tarjeta.appendChild(contenido);
 
     padre.appendChild(tarjeta);
+}
+
+obtenerPublicaciones = (id, url) => {
+    var id = id;
+    var url = document.getElementById('cate').dataset.url;
+
+    var xhttp = new XMLHttpRequest();
+    var cookie = getCookie('csrftoken');
+    xhttp.open('POST', url, true);
+    xhttp.setRequestHeader('X-CSRFToken', cookie);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.onreadystatechange = () => 
+    {  
+        if (xhttp.readyState == 4 && xhttp.status == 200) 
+        {
+            // console.log(xhttp.responseText)
+            document.getElementById("AbajoB").innerHTML = xhttp.responseText;
+        }
+    };
+    datos = "json_name=" + JSON.stringify(id);
+    xhttp.send(datos);
 }

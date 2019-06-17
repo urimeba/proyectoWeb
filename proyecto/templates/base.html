@@ -10,7 +10,7 @@
     <script src="{% static 'js/functions.js' %}"></script>
     <title>QroChan</title>
 </head>
-<body>
+<body onload="obtenerPublicaciones(0); cambiandoBotones()">
 	<div class="navigation">
 		<input type="checkbox" class="navigation__checkbox" id="navi-toggle">
 
@@ -51,31 +51,28 @@
 			<img src="{% static 'img/logo.png' %}">
 			<h1>QRO-CHAN</h1>
 		</div>
-		<div class="Barraderecha">
+		<di class="Barraderecha">
 			<a href="{% url 'cerrarSesion' %}" class="Cerrar">Cerrar sesión</a>
-		</div>
+		</di	v>
 	</div>
 		
 	<div class="Derecha">
-		<div class="Derechita">
-				<div class="Categoria">
-						<a href="{% url 'obtenerCategorias' %}">
-						Más recientes
-						</a>
-					</div>
+		<div class="Derechita" id="Derechita">
+			<div class="Categoria active" id="cate" onclick="obtenerPublicaciones(0)" data-url="{% url 'obtenerPostsCategorias' %}">
+					Más recientes
+			</div>
 			{% for categoria in categorias %}
-			<div class="Categoria">
-				<a href="{% url 'obtenerPostsCategoria' pk=categoria.id %}">
+			<div class="Categoria" onclick="obtenerPublicaciones({{ categoria.id }})">
 				{{ categoria.titulo }}
-				</a>
 			</div>
 			{% endfor %}
 		</div>
 	</div>
+
 	
 	<div class="AbajoB" id="AbajoB">
-		
-
+			{% block texto %}
+			{% endblock %}
 	</div>
 	
 	

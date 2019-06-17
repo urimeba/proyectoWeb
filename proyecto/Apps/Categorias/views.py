@@ -33,7 +33,7 @@ def obtenerCategorias(request):
             return redirect('obtenerCategorias')
         else:
             form = forms.PublicacionFormulario()
-            return render(request, "base.html", {'categorias':categorias,'publicaciones':publicaciones,'form':form})
+            return render(request, "base.html", {'categorias':categorias,'form':form})
     else:
         return redirect('/')
 

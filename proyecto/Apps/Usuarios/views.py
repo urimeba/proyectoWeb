@@ -57,8 +57,6 @@ def iniciarSesion(request):
     datos = json.loads(datos)
     usuario = datos['usuario']
     password = datos['contraseña']
-    print(usuario)
-    print(password)
     user = authenticate(username=usuario, password=password)
     respuesta = ""
 

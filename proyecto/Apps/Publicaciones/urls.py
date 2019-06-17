@@ -18,5 +18,5 @@ from django.urls import path, include
 from Apps.Publicaciones import views as views_publicaciones
 
 urlpatterns = [
-    path('obtenerPostsCategorias/<int:pk>', views_publicaciones.obtenerPostsCategorias, name="obtenerPostsCategoria"),
+    path('obtenerPostsCategorias/', views_publicaciones.obtenerPostsCategorias, name="obtenerPostsCategorias"),
 ]

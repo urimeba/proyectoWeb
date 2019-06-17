@@ -6,9 +6,10 @@ from django.conf import settings
 
 # Create your models here.
 class Comentarios(models.Model):
-    contenido = models.CharField(max_length=50)
+    contenido = models.CharField(max_length=200)
     publicacion = models.ForeignKey(models_publicaciones.Publicaciones, on_delete=models.CASCADE)
     usuario = models.ForeignKey(models_usuarios.Usuarios, on_delete=models.CASCADE)
+    fecha = models.DateField(auto_now_add=True)
 
 class comentarios_publicaciones(models.Model):
     publicacion = models.ForeignKey(models_publicaciones.Publicaciones, on_delete=models.CASCADE)

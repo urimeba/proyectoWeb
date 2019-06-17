@@ -9,11 +9,23 @@ import json
 
 # Create your views here.
 
-def obtenerPostsCategorias(request,pk):
-    idCategoria = pk
-    resultado = []
-    publicaciones = models_publicaciones.Publicaciones.objects.filter(categoria_id=idCategoria)
+def obtenerPostsCategorias(request):
+    id = request.POST.get('json_name')
+    id = int(id)
+    publicaciones = []
 
-    for publicacion in publicaciones:
-        resultado.append([publicacion.id, publicacion.titulo, publicacion.descripcion, publicacion.categoria_id, publicacion.fecha])
-    return JsonResponse({'publicaciones':resultado})
+    if id==0:
+        categorias = models_categorias.Categorias.objects.all()
+        for categoria in categorias:
+            try:
+                posts = models_publicaciones.Publicaciones.objects.filter(categoria_id=categoria.id).latest('fecha')
+                publicaciones.append(posts)
+            except Exception as e:
+                print(e)
+        return render(request, 'publicaciones.html', {'publicaciones':publicaciones})
+    else:
+        try:
+            posts = models_publicaciones.Publicaciones.objects.filter(categoria_id=id)
+        except Exception as e:
+            print(e)
+    return render(request, 'publicaciones.html', {'publicaciones':posts})

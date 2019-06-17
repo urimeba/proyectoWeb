@@ -288,8 +288,9 @@ body {
     padding: 1rem 1.5rem;
 }
 
-.Categoria:hover {
+.Categoria:hover, .active {
     background-color: lightgrey;
+    cursor: pointer;
 }
 
 .Categoria>a {
@@ -320,12 +321,15 @@ body {
     transition: all .2s;
 }
 
+
+
 .Tarjeta:last-child {
     margin-bottom: 2rem;
 }
 
 .Tarjeta:hover {
     border: 1px solid #097AFF;
+    cursor: pointer;
 }
 
 .info {
