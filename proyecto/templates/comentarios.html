@@ -1,0 +1,47 @@
+{% for publicacion in publicaciones %}
+<div class="Tarjeta" >
+	<div class="info">
+		<div class="info2">
+			<p>Por: {{ publicacion.usuario.usuario.username }}</p>
+		</div>
+		<div class="fecha">
+			<p>Fecha: <b>{{ publicacion.fecha }}</b></p>
+		</div>
+	</div>
+					
+	<div class="titulo">
+		<h1>{{ publicacion.titulo }}</h1>
+	</div>
+
+	<div class="contenido">
+		<p>{{ publicacion.descripcion }}</p>
+	</div>
+
+	<div class="categoria">
+		<p>En: <b>{{ publicacion.categoria.titulo }}</b></p>
+    </div>
+	
+	<div class="comentarios">
+		<!-- AQUI EL FOR -->
+		<div class="comentario">
+			<div class="comentario__head">
+				<div class="comentario__name">
+					<p>Nombre</p>
+				</div>
+				<div class="comentario__date">
+					<p>Fecha</p>
+				</div>
+			</div>
+			<div class="comentario__body">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ex, placeat quod neque quasi minus aspernatur consequuntur, nisi rerum cumque dolorem impedit ipsum ea, tempora incidunt a repudiandae obcaecati eius!</p>
+			</div>
+		</div>
+		<!-- AQUI TERMINA EL FOR -->
+
+		<div class="comentar">
+			<textarea placeholder="Escribe aqui tu comentario..."></textarea>
+			<button class="sub--small btnAnimation">Publicar</button>
+		</div>
+	</div>
+</div>
+{% endfor %}

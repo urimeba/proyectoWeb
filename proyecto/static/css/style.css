@@ -74,6 +74,20 @@ body {
     text-align: center;
 }
 
+.sub--small{
+    border: none;
+    display: block;
+    width: 30%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #1d2b69;
+    color: white;
+    font-weight: bold;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-radius: 10px;
+}
+
 .form__transition {
     transition: all 1.2s;
     margin-left: 60%;
@@ -361,6 +375,60 @@ body {
 .contenido {
     width: 100%;
     font-size: 1.4rem;
+}
+
+.comentarios{
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.comentario{
+    width: 100%;
+}
+
+.comentario:first-child{
+    border-top: 1px solid #707070;
+}
+
+.comentario__head{
+    padding-top: 1rem;
+    width: 100%;
+    display: flex;
+    padding-bottom: 1rem;
+}
+
+.comentario__name{
+    flex-grow: 4;
+    font-size: 1.2rem;
+}
+
+.comentario__date{
+    flex-grow: 1;
+}
+
+.comentario__body{
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.comentar{
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.comentar>textarea{
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    background-color: #E9EBEE;
+    border-radius: 10px;
+    resize: none;
+    height: 10rem;
+    margin-bottom: 2rem;
 }
 
 .navigation__checkbox {
