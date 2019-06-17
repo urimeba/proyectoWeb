@@ -26,7 +26,8 @@ def obtenerCategorias(request):
                 titulo = request.POST.get('titulo')
                 descripcion = request.POST.get('descripcion')
                 categoria = request.POST.get('categoria')
-                models_publicaciones.Publicaciones.create(titulo=titulo,descripcion=descripcion,categoria_id=categoria,colonia_id=request.session['colonia'],usuario_id=request.user.id)
+                publicacion =  models_publicaciones.Publicaciones(titulo=titulo,descripcion=descripcion,categoria_id=categoria,colonia_id=request.session['colonia'],usuario_id=request.user.id)
+                publicacion.save()
             else:
                 print("EL FORMULARIO ESTA MAL")
             return redirect('obtenerCategorias')
