@@ -74,7 +74,7 @@ body {
     text-align: center;
 }
 
-.sub--small{
+.sub--small {
     border: none;
     display: block;
     width: 30%;
@@ -244,7 +244,8 @@ body {
     transition: all 25s;
 
 }
-.Home>img:hover{
+
+.Home>img:hover {
     transform: rotate(3333deg);
 }
 
@@ -269,7 +270,7 @@ body {
     padding: 1.3rem;
 }
 
-.Cerrar:hover{
+.Cerrar:hover {
     color: darkred;
 }
 
@@ -307,7 +308,8 @@ body {
     padding: 1rem 1.5rem;
 }
 
-.Categoria:hover, .active {
+.Categoria:hover,
+.active {
     background-color: lightgrey;
     cursor: pointer;
 }
@@ -315,6 +317,10 @@ body {
 .Categoria>a {
     text-decoration: none;
     color: #000;
+}
+
+.categoria {
+    margin-top: 2rem;
 }
 
 .AbajoB {
@@ -377,41 +383,41 @@ body {
     font-size: 1.4rem;
 }
 
-.comentarios{
+.comentarios {
     width: 100%;
     margin-top: 2rem;
 }
 
-.comentario{
+.comentario {
     width: 100%;
 }
 
-.comentario:first-child{
+.comentario:first-child {
     border-top: 1px solid #707070;
 }
 
-.comentario__head{
+.comentario__head {
     padding-top: 1rem;
     width: 100%;
     display: flex;
     padding-bottom: 1rem;
 }
 
-.comentario__name{
+.comentario__name {
     flex-grow: 4;
     font-size: 1.2rem;
 }
 
-.comentario__date{
+.comentario__date {
     flex-grow: 1;
 }
 
-.comentario__body{
+.comentario__body {
     width: 100%;
     font-size: 1.2rem;
 }
 
-.comentar{
+.comentar {
     width: 100%;
     margin-top: 2rem;
     display: flex;
@@ -419,7 +425,7 @@ body {
     align-items: flex-end;
 }
 
-.comentar>textarea{
+.comentar>textarea {
     width: 100%;
     padding: 1rem;
     outline: none;
