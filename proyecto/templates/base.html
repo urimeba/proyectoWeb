@@ -40,7 +40,7 @@
 						<label for="categoria" class="form__label">{{ form.categoria.label_tag }}</label>
 					</div>
 
-					<input type="submit" value="Publicar">
+					<input type="submit" value="Publicar" class="sub btnAnimation">
 				</form>
 			</div>
 		</nav>
@@ -52,18 +52,18 @@
 			<h1>QRO-CHAN</h1>
 		</div>
 		<div class="Barraderecha">
-			<a href="{% url 'cerrarSesion' %}" class="Cerrar"></a>
+			<a href="{% url 'cerrarSesion' %}" class="Cerrar">Cerrar sesión</a>
 		</div>
 	</div>
 		
 	<div class="Derecha">
 		<div class="Derechita">
 			{% for categoria in categorias %}
-			<a href="{% url 'obtenerPostsCategoria' pk=categoria.id %}">
 			<div class="Categoria">
+				<a href="{% url 'obtenerPostsCategoria' pk=categoria.id %}">
 				{{ categoria.titulo }}
+				</a>
 			</div>
-			</a>
 			{% endfor %}
 		</div>
 	</div>

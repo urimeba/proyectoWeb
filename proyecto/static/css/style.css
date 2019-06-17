@@ -213,37 +213,45 @@ body {
     display: flex;
 }
 
-.Barra:hover{
+.Barra:hover {
     border-bottom: 1px solid #097AFF;
 }
 
-.Home{
+.Home {
     flex-grow: 1;
     display: flex;
     align-items: center;
 }
 
-.Home > img {
+.Home>img {
     height: 35px;
     width: 35px;
     margin-left: .8rem;
 }
 
-.Home > h1{
+.Home>h1 {
     margin-left: .8rem;
 }
 
-.Barraderecha{
+.Barraderecha {
     flex-grow: 1;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.Cerrar{
-    display: block;
+.Cerrar {
     height: 100%;
-    background-color: green;
+    font-size: 1.4rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    padding: 1.3rem;
+}
+
+.Cerrar:hover{
+    color: darkred;
 }
 
 .Derecha {
@@ -270,21 +278,21 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-.Derechita:hover{
+.Derechita:hover {
     border: 1px solid #097AFF;
 }
 
-.Categoria{
+.Categoria {
     width: 100%;
     font-size: 2rem;
     padding: 1rem 1.5rem;
 }
 
-.Categoria:hover{
+.Categoria:hover {
     background-color: lightgrey;
 }
 
-.Categoria > a{
+.Categoria>a {
     text-decoration: none;
     color: #000;
 }
@@ -312,7 +320,7 @@ body {
     transition: all .2s;
 }
 
-.Tarjeta:last-child{
+.Tarjeta:last-child {
     margin-bottom: 2rem;
 }
 
@@ -372,7 +380,7 @@ body {
     border: 1px solid #097AFF;
 }
 
-.navigation__icon{
+.navigation__icon {
     height: 3.5rem;
     width: 3.5rem;
 }
