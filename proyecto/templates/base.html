@@ -21,9 +21,28 @@
 		<div class="navigation__background">&nbsp;</div>
 
 		<nav class="navigation__nav">
-			<ul class="navigation__list">
-				<li class="navigation__item">HOLA</li>
-			</ul>
+			<div class="navigation__list">
+				<form method="POST" class="">
+					<h1 class="marginB20">Nueva publicación</h1>
+					{% csrf_token %}
+					<div class="form__group">
+						{{ form.titulo }}
+						<label for="titulo" class="form__label">{{ form.titulo.label_tag }}</label>
+					</div>
+					
+					<div class="form__group">
+						{{ form.descripcion }}
+						<label for="descripcion" class="form__label">{{ form.descripcion.label_tag }}</label>
+					</div>
+	
+					<div class="form__group">
+						{{ form.categoria }}
+						<label for="categoria" class="form__label">{{ form.categoria.label_tag }}</label>
+					</div>
+
+					<input type="submit" value="Publicar">
+				</form>
+			</div>
 		</nav>
 	</div>
 

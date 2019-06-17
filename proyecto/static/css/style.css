@@ -312,6 +312,10 @@ body {
     transition: all .2s;
 }
 
+.Tarjeta:last-child{
+    margin-bottom: 2rem;
+}
+
 .Tarjeta:hover {
     border: 1px solid #097AFF;
 }
@@ -382,7 +386,7 @@ body {
     left: 6.5rem;
     background-image: radial-gradient(#097AFF, #1d2b69);
     z-index: 1000;
-    transition: all 0.8s;
+    transition: all 0.4s;
 }
 
 .navigation__nav {
@@ -393,7 +397,7 @@ body {
     z-index: 1500;
     opacity: 0;
     width: 0;
-    transition: all 0.8s;
+    transition: all 0.4s;
 }
 
 .navigation__list {
@@ -403,38 +407,10 @@ body {
     transform: translate(-50%, -50%);
     list-style: none;
     text-align: center;
-    width: 100%;
-}
-
-.navigation__item {
-    margin: 1rem;
-}
-
-.navigation__link:link,
-.navigation__link:visited {
-    display: inline-block;
-    font-size: 3rem;
-    font-weight: 300;
-    padding: 1rem 2rem;
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
-    background-size: 220%;
-    transition: all .4s;
-}
-
-.navigation__link:link span,
-.navigation__link:visited span {
-    margin-right: 1.5rem;
-    display: inline-block;
-}
-
-.navigation__link:hover,
-.navigation__link:active {
-    background-position: 100%;
-    color: #55c57a;
-    transform: translateX(1rem);
+    width: 40%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2rem 10rem;
 }
 
 .navigation__checkbox:checked~.navigation__background {
