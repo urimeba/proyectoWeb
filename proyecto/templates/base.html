@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="{% static 'js/functions.js' %}"></script>
     <title>QroChan</title>
@@ -52,7 +52,8 @@
 			<h1>QRO-CHAN</h1>
 		</div>
 		<di class="Barraderecha">
-			<a href="">{{ user.username }}</a>
+			<a href="" class="Username">{{ user.username }}</a>
+			<a class="Colonia">San Francisquito</a>
 			<a href="{% url 'cerrarSesion' %}" class="Cerrar">Cerrar sesión</a>
 		</div>
 	</div>
