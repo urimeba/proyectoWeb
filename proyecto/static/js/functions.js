@@ -89,7 +89,18 @@ signUp = () => {
                 xhttp.onreadystatechange = () => {
                     if (xhttp.readyState == 4 && xhttp.status == 200) {
                         // console.log(xhttp.responseText);
-                        alert(xhttp.responseText);
+                        // alert(xhttp.responseText);
+                        setTimeout(() => {
+                            if (Notification.permission !== 'granted'){
+                                Notification.requestPermission();
+                            } else {
+                                var notification = new Notification('Bienvenido a nuestra comunidad', {
+                                    icon: '/static/img/logo.png',
+                                    body: "Registro exitoso",
+                                });
+                                toggle(document.getElementById('reg'));
+                            }
+                        }, 1000);
                     }
                 };
                 datos = "json_name=" + JSON.stringify(data);
@@ -302,4 +313,17 @@ comment = () => {
     }else{
         var n = new Notification("LOL");
     }
+}
+
+notificar = () => {
+    setTimeout(() => {
+        if (Notification.permission !== 'granted'){
+            Notification.requestPermission();
+        } else {
+            var notification = new Notification('Notification title', {
+                icon: '/static/img/logo.png',
+                body: "Nueva publicación agregada",
+            });
+        }
+    }, 2000);
 }
