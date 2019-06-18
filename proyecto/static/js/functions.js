@@ -1,5 +1,4 @@
-// CAMBIANDO LOS BOTONES
-
+// CAMBIANDO LOS BOTONES A ACTIVE
 function cambiandoBotones()
 {
     // Get the container element
@@ -210,6 +209,30 @@ post = () => {
 obtenerPublicaciones = (id, url) => {
     var id = id;
     var url = document.getElementById('cate').dataset.url;
+
+    var xhttp = new XMLHttpRequest();
+    var cookie = getCookie('csrftoken');
+    xhttp.open('POST', url, true);
+    xhttp.setRequestHeader('X-CSRFToken', cookie);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.onreadystatechange = () => 
+    {  
+        if (xhttp.readyState == 4 && xhttp.status == 200) 
+        {
+            // console.log(xhttp.responseText)
+            document.getElementById("AbajoB").innerHTML = xhttp.responseText;
+        }
+    };
+    datos = "json_name=" + JSON.stringify(id);
+    xhttp.send(datos);
+}
+
+
+obtenerPublicacion = (id) => {
+    var id = id;
+    var url = document.getElementById(id).dataset.url;
+
+    // console.log(id,u)
 
     var xhttp = new XMLHttpRequest();
     var cookie = getCookie('csrftoken');

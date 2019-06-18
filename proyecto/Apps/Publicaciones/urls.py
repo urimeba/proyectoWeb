@@ -19,4 +19,5 @@ from Apps.Publicaciones import views as views_publicaciones
 
 urlpatterns = [
     path('obtenerPostsCategorias/', views_publicaciones.obtenerPostsCategorias, name="obtenerPostsCategorias"),
+    path('obtenerPost/', views_publicaciones.obtenerPost, name="obtenerPost"),
 ]

@@ -1,5 +1,5 @@
 {% for publicacion in publicaciones %}
-<div class="Tarjeta" >
+<div class="Tarjeta" onclick="obtenerPublicacion({{ publicacion.id }})" id="{{ publicacion.id }}" data-url="{% url 'obtenerPost' %}">
 	<div class="info">
 		<div class="info2">
 			<p>Por: {{ publicacion.usuario.usuario.username }}</p>

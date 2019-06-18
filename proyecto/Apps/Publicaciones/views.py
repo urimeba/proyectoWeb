@@ -29,3 +29,15 @@ def obtenerPostsCategorias(request):
         except Exception as e:
             print(e)
     return render(request, 'publicaciones.html', {'publicaciones':posts})
+
+
+
+def obtenerPost(request):
+    id = request.POST.get('json_name')
+    id = int(id)
+
+    post = models_publicaciones.Publicaciones.objects.filter(id=id)
+
+    return render(request, 'comentarios.html', {'publicaciones':post})
+
+    
