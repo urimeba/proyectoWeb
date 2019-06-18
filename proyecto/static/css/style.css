@@ -86,6 +86,7 @@ body {
     padding: 1.5rem 2rem;
     text-align: center;
     border-radius: 10px;
+    outline: none;
 }
 
 .form__transition {
@@ -112,6 +113,10 @@ body {
 
 .form__group--small:not(:last-child) {
     margin-bottom: .5rem;
+}
+
+.form__group>textarea{
+    resize: none;
 }
 
 .form__input {
@@ -438,6 +443,7 @@ body {
     resize: none;
     height: 10rem;
     margin-bottom: 2rem;
+    font-family: "Lato", sans-serif;
 }
 
 .navigation__checkbox {
@@ -503,7 +509,6 @@ body {
     text-align: center;
     width: 40%;
     background-color: #fff;
-    border-radius: 10px;
     padding: 2rem 10rem;
 }
 

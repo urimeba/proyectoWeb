@@ -8,14 +8,12 @@ function cambiandoBotones()
     var btns = btnContainer.getElementsByClassName("Categoria");
 
     // Loop through the buttons and add the active class to the current/clicked button
-    for (var i = 0; i < btns.length; i++) 
-    {
-    btns[i].addEventListener("click", function() 
-    {
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-    });
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
     }
 }
 
@@ -37,13 +35,10 @@ logIn = () => {
         xhttp.onreadystatechange = () => {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
                 console.log(xhttp.responseText)
-                if(xhttp.responseText=="True")
-                {
+                if(xhttp.responseText=="True") {
                     alert("Sesion iniciada correctamente");
                     window.location.href="Categorias/obtenerCategorias";
-                }
-                else
-                {
+                } else {
                     alert("Favor de verificar tus datos")
                 }
                 
@@ -215,10 +210,8 @@ obtenerPublicaciones = (id, url) => {
     xhttp.open('POST', url, true);
     xhttp.setRequestHeader('X-CSRFToken', cookie);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.onreadystatechange = () => 
-    {  
-        if (xhttp.readyState == 4 && xhttp.status == 200) 
-        {
+    xhttp.onreadystatechange = () => {  
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
             // console.log(xhttp.responseText)
             document.getElementById("AbajoB").innerHTML = xhttp.responseText;
         }
@@ -239,14 +232,52 @@ obtenerPublicacion = (id) => {
     xhttp.open('POST', url, true);
     xhttp.setRequestHeader('X-CSRFToken', cookie);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.onreadystatechange = () => 
-    {  
-        if (xhttp.readyState == 4 && xhttp.status == 200) 
-        {
+    xhttp.onreadystatechange = () => {  
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
             // console.log(xhttp.responseText)
             document.getElementById("AbajoB").innerHTML = xhttp.responseText;
         }
     };
     datos = "json_name=" + JSON.stringify(id);
     xhttp.send(datos);
+}
+
+comment = () => {
+    var comment = document.getElementById('comment').value;
+    var padre = document.getElementById('comentarios');  
+    if(comment){
+        var div1 = document.createElement('div');
+        div1.classList.add('comentario');
+
+        var div2 = document.createElement('div');
+        div2.classList.add('comentario__head');
+        var div3 = document.createElement('div');
+        div3.classList.add('comentario__body');
+
+        var div4 = document.createElement('div');
+        div4.classList.add('comentario__name');
+        var div5 = document.createElement('div');
+        div5.classList.add('comentario__date');
+
+        var p1 = document.createElement('p');
+        p1.innerHTML = "HOLA"
+        var p2 = document.createElement('p');
+        p2.innerHTML = "Fecha"
+        var p3 = document.createElement('p');
+        p3.innerHTML = "Comentvhbsijbjwkenkwnej"
+
+        div4.appendChild(p1);
+        div5.appendChild(p2);
+        div3.appendChild(p3);
+
+        div2.appendChild(div4);
+        div2.appendChild(div5);
+
+        div1.appendChild(div2);
+        div1.appendChild(div3);
+
+        padre.insertBefore(div1, document.getElementById('comentar'));
+    }else{
+        var n = new Notification("LOL");
+    }
 }
