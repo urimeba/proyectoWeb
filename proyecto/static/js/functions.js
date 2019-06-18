@@ -282,11 +282,12 @@ comment = () => {
         div5.classList.add('comentario__date');
 
         var p1 = document.createElement('p');
-        p1.innerHTML = "HOLA"
+        p1.innerHTML = document.getElementById('Username').innerHTML;
         var p2 = document.createElement('p');
-        p2.innerHTML = Date();
+        var date = new Date();
+        p2.innerHTML = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
         var p3 = document.createElement('p');
-        p3.innerHTML = "Comentvhbsijbjwkenkwnej"
+        p3.innerHTML = comment;
 
         div4.appendChild(p1);
         div5.appendChild(p2);
