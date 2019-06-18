@@ -1,3 +1,14 @@
+document.addEventListener('DOMContentLoaded', function () {
+    if (!Notification) {
+        alert('Desktop notifications not available in your browser. Try Chromium.'); 
+        return;
+    }
+  
+    if (Notification.permission !== 'granted'){
+        Notification.requestPermission();
+    }
+});
+
 // CAMBIANDO LOS BOTONES A ACTIVE
 function cambiandoBotones()
 {
@@ -262,7 +273,7 @@ comment = () => {
         var p1 = document.createElement('p');
         p1.innerHTML = "HOLA"
         var p2 = document.createElement('p');
-        p2.innerHTML = "Fecha"
+        p2.innerHTML = Date();
         var p3 = document.createElement('p');
         p3.innerHTML = "Comentvhbsijbjwkenkwnej"
 
@@ -277,6 +288,17 @@ comment = () => {
         div1.appendChild(div3);
 
         padre.insertBefore(div1, document.getElementById('comentar'));
+
+        setTimeout(() => {
+            if (Notification.permission !== 'granted'){
+                Notification.requestPermission();
+            } else {
+                var notification = new Notification('Notification title', {
+                    icon: '/static/img/logo.png',
+                    body: "Tu comentario fue publicado",
+                });
+            }
+        }, 2000);
     }else{
         var n = new Notification("LOL");
     }
