@@ -5,6 +5,7 @@ from Apps.Usuarios import models as models_usuarios
 from Apps.Colonias import models as models_colonias
 from Apps.Categorias import models as models_categorias
 from Apps.Publicaciones import models as models_publicaciones
+from Apps.Comentarios import models as models_comentarios
 import json
 
 # Create your views here.
@@ -35,9 +36,17 @@ def obtenerPostsCategorias(request):
 def obtenerPost(request):
     id = request.POST.get('json_name')
     id = int(id)
+    
+    comments =  []
 
     post = models_publicaciones.Publicaciones.objects.filter(id=id)
 
-    return render(request, 'comentarios.html', {'publicaciones':post})
+    comentarios = models_comentarios.comentarios_publicaciones.objects.filter(publicacion_id=id)
+
+    for comentario in comentarios:
+        comments.append(models_comentarios.Comentarios.objects.filter(id=comentario.id))
+
+
+    return render(request, 'comentarios.html', {'publicaciones':post,'comentarios':comments})
 
     
