@@ -9,9 +9,10 @@ class ActualizarDatos(forms.Form):
     CHOICES = tuple((o.pk, o.nombre) for o in colo) 
 
 
-    nombre = forms.CharField(widget=forms.TextInput(attrs={'class':'form__input', 'placeholder':'Nombre:', 'name':'nombre'}))
-    apellido = forms.CharField(widget=forms.TextInput(attrs={'class':'form__input', 'placeholder':'Apellido(s):', 'name':'apellido'}))
-    correo = forms.EmailField(widget=forms.TextInput(attrs={'class':'form__input', 'placeholder':'Correo:', 'name':'correo'}))
-    contraseña = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form__input', 'placeholder':'Apellido(s):', 'name':'contraseña'}))
-       
+    nombre = forms.CharField(widget=forms.TextInput(attrs={'class':'form__input', 'placeholder':'Nombre:', 'name':'nombre','minlength':'5'}))
+    apellido = forms.CharField(widget=forms.TextInput(attrs={'class':'form__input', 'placeholder':'Apellido(s):', 'name':'apellido','minlength':'5'}))
+    correo = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form__input', 'placeholder':'Correo:', 'name':'correo'}))
+    contraseña = forms.CharField(required=False,widget=forms.PasswordInput(attrs={'class':'form__input', 'placeholder':'Nueva contraseña', 'name':'contraseña','minlength':'5'}))
+    contraseña2 = forms.CharField(required=False,widget=forms.PasswordInput(attrs={'class':'form__input', 'placeholder':'Confirma tu contraseña', 'name':'contraseña2','minlength':'5'}))
+    
     colonia = forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'form__input', 'placeholder':'Colonia', 'name':'colonia'}))

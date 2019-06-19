@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.models import User
+from django.http import JsonResponse
 from django.contrib.auth import authenticate, login
 from Apps.Usuarios import models as models_usuarios
 from Apps.Colonias import models as models_colonias
@@ -100,4 +101,21 @@ def update_view(request):
             return redirect('update_view')
     else:
         form = forms.ActualizarDatos()
+        colonia = models_usuarios.Usuarios.objects.get(id=request.user.id).colonia.id
+        form.fields['colonia'].initial = [colonia]
         return render(request, "update.html", {'form':form})
+
+def obtenerDatosUsuario(request):
+    usuario = models_usuarios.Usuarios.objects.get(usuario_id=request.user.id)
+
+    nombre=usuario.usuario.first_name
+    apellido = usuario.usuario.last_name
+    correo = usuario.usuario.email
+    colonia = usuario.colonia.nombre
+
+    datos={}
+    datos['nombre'] = nombre
+    datos['apellido'] = apellido
+    datos['correo'] = correo
+    datos['colonia'] = colonia
+    return JsonResponse({'datos':datos})

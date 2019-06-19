@@ -401,3 +401,34 @@ publicarComentario = (boton) => {
     datos = "json_name=" + JSON.stringify(data);
     xhttp.send(datos);
 }
+
+obtenerDatosUsuario = () => {
+    var url = document.getElementById('body').dataset.url;
+
+    var xhttp = new XMLHttpRequest();
+    var cookie = getCookie('csrftoken');
+    xhttp.open('POST', url, true);
+    xhttp.setRequestHeader('X-CSRFToken', cookie);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.onreadystatechange = () => 
+    {  
+        if (xhttp.readyState == 4 && xhttp.status == 200) 
+        {
+            datos = JSON.parse(xhttp.responseText);
+            // console.log(datos['datos'])
+
+            nombre = datos['datos']['nombre']
+            apellido = datos['datos']['apellido']
+            correo  = datos['datos']['correo']
+            colonia = datos['datos']['colonia']
+
+            document.getElementById("id_nombre").value=nombre
+            document.getElementById("id_apellido").value=apellido
+            document.getElementById("id_correo").value=correo
+            document.getElementById("id_contraseña").value=""
+            document.getElementById("id_contraseña2").value=""
+        }
+    };
+    datos = "json_name=" + "";
+    xhttp.send(datos);
+}
