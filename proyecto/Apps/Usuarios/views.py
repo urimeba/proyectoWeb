@@ -5,6 +5,7 @@ from Apps.Usuarios import models as models_usuarios
 from Apps.Colonias import models as models_colonias
 from Apps.Categorias import views as views_categorias
 import json
+from Apps.Usuarios import forms
 
 # Create your views here.
 def login_view(request):     
@@ -63,8 +64,9 @@ def iniciarSesion(request):
     if user is not None:
         if user.is_active:
             login(request, user)
-            id_colonia = models_usuarios.Usuarios.objects.get(id=user.id).colonia_id
-            request.session['colonia'] = id_colonia
+            colonia = models_usuarios.Usuarios.objects.get(id=user.id).colonia_id
+            request.session['colonia'] = colonia
+            request.session['nombreColonia'] = models_colonias.Colonias.objects.get(id=colonia).nombre
             print("Inicio de sesion correcto")
             respuesta = True
         else: 
@@ -81,4 +83,21 @@ def cerrarSesion(request):
     return redirect('/')
 
 def update_view(request):
-    return render(request, 'update.html')
+    if request.method == 'POST':
+        form = forms.ActualizarDatos(request.POST)
+        
+        if form.is_valid():
+            nombre = request.POST.get('nombre')
+            apellido = request.POST.get('apellido')
+            correo = request.POST.get('correo')
+            contraseña = request.POST.get('contraseña')
+            colonia = request.POST.get('colonia')
+
+            print(nombre)
+
+        else:
+            print("El formulario esta mal")
+            return redirect('update_view')
+    else:
+        form = forms.ActualizarDatos()
+        return render(request, "update.html", {'form':form})

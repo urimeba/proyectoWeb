@@ -285,7 +285,49 @@ comment = () => {
         p1.innerHTML = document.getElementById('Username').innerHTML;
         var p2 = document.createElement('p');
         var date = new Date();
-        p2.innerHTML = date.getDate() + " de " + (date.getMonth()+1) + " de " + date.getFullYear();
+
+        var mes = "";
+        switch(date.getMonth()+1)
+        {
+            case 1:
+                mes = "Enero"
+                break;
+            case 2:
+                mes = "Febrero"
+                break;
+            case 3:
+                mes = "Marzo"
+                break;
+            case 4:
+                mes = "Abril"
+                break;
+            case 5:
+                mes = "Mayo"
+                break;
+            case 6:
+                mes = "Junio"
+                break;   
+            case 7:
+                mes = "Julio"
+                break; 
+            case 8:
+                mes = "Agosto"
+                break;
+            case 9:
+                mes = "Septiembre"
+                break;
+            case 10:
+                mes = "Octubre"
+                break;
+            case 11:
+                mes = "Noviembre"
+                break;
+            case 12:
+                mes = "Diciembre"
+                break;  
+
+        }
+        p2.innerHTML = date.getDate() + " de " + mes + " de " + date.getFullYear();
         var p3 = document.createElement('p');
         p3.innerHTML = comment;
 
@@ -307,7 +349,7 @@ comment = () => {
             if (Notification.permission !== 'granted'){
                 Notification.requestPermission();
             } else {
-                var notification = new Notification('Notification title', {
+                var notification = new Notification('Comentario', {
                     icon: '/static/img/logo.png',
                     body: "Tu comentario fue publicado",
                 });
