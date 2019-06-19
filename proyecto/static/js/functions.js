@@ -71,45 +71,49 @@ signUp = () => {
     var cpass = document.getElementById('cpassS').value;
     var address = document.getElementById('address').value;
     if(user != "" && name != "" && last != "" && pass != "" && cpass != "" && address != "" && mail != ""){
-        if(pass == cpass){
-            if(address != 0){
-                var data = {}
-                data['usuario'] = user;
-                data['nombre'] = name;
-                data['apellido'] = last;
-                data['contraseña'] = pass;
-                data['colonia'] = address;
-                data['correo'] = mail;
-                var url = document.getElementById('buttonSignUp').dataset.url;
-                var xhttp = new XMLHttpRequest();
-                var cookie = getCookie('csrftoken');
-                xhttp.open('POST', url, true);
-                xhttp.setRequestHeader('X-CSRFToken', cookie);
-                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xhttp.onreadystatechange = () => {
-                    if (xhttp.readyState == 4 && xhttp.status == 200) {
-                        // console.log(xhttp.responseText);
-                        // alert(xhttp.responseText);
-                        setTimeout(() => {
-                            if (Notification.permission !== 'granted'){
-                                Notification.requestPermission();
-                            } else {
-                                var notification = new Notification('Bienvenido a nuestra comunidad', {
-                                    icon: '/static/img/logo.png',
-                                    body: "Registro exitoso",
-                                });
-                                toggle(document.getElementById('reg'));
-                            }
-                        }, 1000);
-                    }
-                };
-                datos = "json_name=" + JSON.stringify(data);
-                xhttp.send(datos);
+        if(pass.length >= 5){
+            if(pass == cpass){
+                if(address != 0){
+                    var data = {}
+                    data['usuario'] = user;
+                    data['nombre'] = name;
+                    data['apellido'] = last;
+                    data['contraseña'] = pass;
+                    data['colonia'] = address;
+                    data['correo'] = mail;
+                    var url = document.getElementById('buttonSignUp').dataset.url;
+                    var xhttp = new XMLHttpRequest();
+                    var cookie = getCookie('csrftoken');
+                    xhttp.open('POST', url, true);
+                    xhttp.setRequestHeader('X-CSRFToken', cookie);
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.onreadystatechange = () => {
+                        if (xhttp.readyState == 4 && xhttp.status == 200) {
+                            // console.log(xhttp.responseText);
+                            // alert(xhttp.responseText);
+                            setTimeout(() => {
+                                if (Notification.permission !== 'granted'){
+                                    Notification.requestPermission();
+                                } else {
+                                    var notification = new Notification('Bienvenido a nuestra comunidad', {
+                                        icon: '/static/img/logo.png',
+                                        body: "Registro exitoso",
+                                    });
+                                    toggle(document.getElementById('reg'));
+                                }
+                            }, 1000);
+                        }
+                    };
+                    datos = "json_name=" + JSON.stringify(data);
+                    xhttp.send(datos);
+                }else{
+                    alert("Debe escoger una colonia");
+                }
             }else{
-                alert("Debe escoger una colonia");
+                alert("Las contraseñas no coinciden");
             }
         }else{
-            alert("Las contraseñas no coinciden");
+            alert("La contraseña debe de tener mas de 5 caracteres");
         }
     }else{
         alert("No puede haber campos vacios");
