@@ -19,14 +19,14 @@ def obtenerPostsCategorias(request):
         categorias = models_categorias.Categorias.objects.all()
         for categoria in categorias:
             try:
-                posts = models_publicaciones.Publicaciones.objects.filter(categoria_id=categoria.id).latest('fecha')
+                posts = models_publicaciones.Publicaciones.objects.filter(categoria_id=categoria.id,colonia_id=request.session['colonia']).latest('fecha')
                 publicaciones.append(posts)
             except Exception as e:
                 print(e)
         return render(request, 'publicaciones.html', {'publicaciones':publicaciones})
     else:
         try:
-            posts = models_publicaciones.Publicaciones.objects.filter(categoria_id=id)
+            posts = models_publicaciones.Publicaciones.objects.filter(categoria_id=id,colonia_id=request.session['colonia'])
         except Exception as e:
             print(e)
     return render(request, 'publicaciones.html', {'publicaciones':posts})
