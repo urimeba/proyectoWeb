@@ -11,7 +11,6 @@
         <title>Actualiza tus datos</title>
 </head>
 <body>
-    
 
 <div class="Barra">
     <div class="Home">
@@ -20,66 +19,23 @@
     </div>
     <di class="Barraderecha">
         <a href="" class="Username" id="Username">{{ user.username }}</a>
-        <p>{{ request.session.nombreColonia }}</p>
+        <p class="Username">{{ request.session.nombreColonia }}</p>
         <a href="{% url 'cerrarSesion' %}" class="Cerrar">Cerrar sesión</a>
     </div>
 </div>
 
-<div class="Todo">
-        <h1 class="marginB20">Actualizar Información</h1>
-
-</div>
-
-<div class="Todo">
-    <form action="">
-        <h1 class="marginB20">Actualizar Información</h1>
-        {% for field in form %}
-        <div class="form__group--small">
-            {{ field.errors }}
-            {{ field.label_tag }} 
-            {{ field }}
-        </div>
-        {% endfor %}
-
-        <button type="submit" class="sub marginB20 marginT20 btnAnimation" id="buttonSignUp">Actualizar</button>
-    </form>
-</div>
-
-<!-- 
-
-    <div class="form__group--small">
-        <input type="text" placeholder="Nombre:" name="name" class="form__input" >
-        <label for="name" class="form__label">Nombre:</label>
+<form action="" class="update">
+    <h1 class="marginB20">Actualizar Información</h1>
+    {% for field in form %}
+    <div class="form__group--small bigInput">
+        {{ field.errors }}
+        {{ field }}
+        <label for="" class="form__label">{{ field.label_tag }}</label>
     </div>
+    {% endfor %}
 
-    <div class="form__group--small">
-        <input type="text" placeholder="Apellido:" name="last" class="form__input" id="lastS" oninput="key(this)">
-        <label for="last" class="form__label">Apellido:</label>
-    </div>
-
-    <div class="form__group--small">
-        <input type="email" placeholder="Correo:" name="mail" class="form__input" id="mailS" oninput="key(this)">
-        <label for="mail" class="form__label">Correo:</label>
-    </div>
-
-    <div class="form__group--small">
-        <input type="password" placeholder="Contraseña:" name="pass" class="form__input" id="passS" oninput="key(this)">
-        <label for="pass" class="form__label">Contraseña:</label>
-    </div>
-
-    <div class="form__group--small">
-        <input type="password" placeholder="Confirmar contraseña:" name="cpass" class="form__input" id="cpassS" oninput="key(this)">
-        <label for="cpass" class="form__label">Confirmar contraseña:</label>
-    </div>
-
-    <div class="form__group--small">
-        <select name="address" id="address" class="form__input" id="address">
-            <option value="0" selected>Colonia:</option>
-        </select>
-    </div>
-
-    <button class="sub marginB20 marginT20 btnAnimation" id="buttonSignUp">Actualizar</button>
-</div> -->
+    <button type="submit" class="sub--small2 marginB20 marginT20 btnAnimation" id="buttonSignUp">Actualizar</button>
+</form>
     
 </body>
 </html>

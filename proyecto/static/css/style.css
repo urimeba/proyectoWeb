@@ -89,6 +89,20 @@ body {
     outline: none;
 }
 
+.sub--small2 {
+    border: none;
+    display: block;
+    width: 30%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #1d2b69;
+    color: white;
+    font-weight: bold;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    outline: none;
+}
+
 .form__transition {
     transition: all 1.2s;
     margin-left: 60%;
@@ -277,12 +291,12 @@ body {
 
 .Username{
     height: 100%;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     text-decoration: none;
     font-weight: bold;
     color: #097AFF;
     text-align: center;
-    padding: 1.4rem;
+    padding: 1.6rem;
 }
 
 .Colonia{
@@ -538,5 +552,24 @@ body {
 
 .navigation__checkbox:checked~.navigation__nav {
     opacity: 1;
+    width: 100%;
+}
+
+.update{
+    position: fixed;
+    margin-top: 5rem;
+    width: 100%;
+    height: calc(100% - 5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bigInput{
+    width: 40%;
+}
+
+.bigInput>input{
     width: 100%;
 }
