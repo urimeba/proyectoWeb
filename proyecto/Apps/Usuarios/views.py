@@ -80,3 +80,5 @@ def cerrarSesion(request):
     request.session.flush()
     return redirect('/')
 
+def update_view(request):
+    return render(request, 'update.html')

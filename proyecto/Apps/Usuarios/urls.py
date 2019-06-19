@@ -23,6 +23,7 @@ urlpatterns = [
     path('registrarUsuario', views_usuarios.registrar_usuario, name="registrarUsuario"),
     path('iniciarSesion', views_usuarios.iniciarSesion, name="iniciarSesion"),
     path('cerrarSesion', views_usuarios.cerrarSesion, name="cerrarSesion"),
+    path('update', views_usuarios.update_view, name="update"),
     
     
     

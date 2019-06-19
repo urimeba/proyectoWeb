@@ -285,7 +285,7 @@ comment = () => {
         p1.innerHTML = document.getElementById('Username').innerHTML;
         var p2 = document.createElement('p');
         var date = new Date();
-        p2.innerHTML = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+        p2.innerHTML = date.getDate() + " de " + (date.getMonth()+1) + " de " + date.getFullYear();
         var p3 = document.createElement('p');
         p3.innerHTML = comment;
 
@@ -301,6 +301,8 @@ comment = () => {
 
         padre.insertBefore(div1, document.getElementById('comentar'));
 
+        
+
         setTimeout(() => {
             if (Notification.permission !== 'granted'){
                 Notification.requestPermission();
@@ -310,10 +312,12 @@ comment = () => {
                     body: "Tu comentario fue publicado",
                 });
             }
-        }, 2000);
+        }, 0500);
     }else{
         var n = new Notification("LOL");
     }
+
+    document.getElementById('comment').value = ""
 }
 
 notificar = () => {
@@ -327,4 +331,31 @@ notificar = () => {
             });
         }
     }, 2000);
+}
+
+
+publicarComentario = (boton) => {
+    var comentario = document.getElementById('comment').value;
+    var id = boton.id;
+    var url = document.getElementById('comment').dataset.url;
+
+    data = {};
+    data['comentario']=comentario;
+    data['id']=id;
+
+    var xhttp = new XMLHttpRequest();
+    var cookie = getCookie('csrftoken');
+    xhttp.open('POST', url, true);
+    xhttp.setRequestHeader('X-CSRFToken', cookie);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.onreadystatechange = () => 
+    {  
+        if (xhttp.readyState == 4 && xhttp.status == 200) 
+        {
+            console.log(xhttp.responseText)
+            // document.getElementById("AbajoB").innerHTML = xhttp.responseText;
+        }
+    };
+    datos = "json_name=" + JSON.stringify(data);
+    xhttp.send(datos);
 }

@@ -25,26 +25,33 @@
 	
 	<div class="comentarios" id="comentarios">
 		{% for comentario in comentarios %}
-		<div class="comentario">
-			<div class="comentario__head">
-				<div class="comentario__name">
-					<p>{{ comentario.0.usuario.usuario.username }}</p>
+
+			<!-- AQUI EL FOR -->
+		<div class="comentario" id="{{ comentario.0.id }}">
+				<div class="comentario__head">
+					<div class="comentario__name">
+						<p>{{ comentario.0.usuario.usuario.username }}</p>
+					</div>
+					<div class="comentario__date">
+						<p>{{ comentario.0.fecha }}</p>
+					</div>
 				</div>
+
 				<div class="comentario__date">
 					<p>{{ comentario.0.fecha }}</p>
 				</div>
-			</div>
-			<div class="comentario__body">
-				<p>{{ comentario.0.contenido }}</p>
-			</div>
+		</div>
+		<div class="comentario__body">
+			<p>{{ comentario.0.contenido }}</p>
 		</div>
 		{% endfor %}
-		
-
-		<div class="comentar" id="comentar">
-			<textarea placeholder="Escribe aqui tu comentario..." id="comment"></textarea>
-			<button class="sub--small btnAnimation" onclick="comment()">Publicar</button>
-		</div>
 	</div>
+
+		<div class="comentar">
+			<textarea placeholder="Escribe aqui tu comentario..." id="comment" data-url="{% url 'publicarComentario' %}"></textarea>
+			<button id="{{publicacion.id}}"  onclick="publicarComentario(this); comment()" class="sub--small btnAnimation">Publicar</button>
+		</div>
+
+		
 </div>
 {% endfor %}

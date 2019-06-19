@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from Apps.Comentarios import views as views_comentarios
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('publicarComentario', views_comentarios.publicarComentario, name="publicarComentario"),
 
     # LAS APLICACIONES SE ENCUENTRAN COMENTADAS
     # SI LAS OCUPAS, DESCOMENTALAS
