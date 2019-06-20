@@ -272,6 +272,20 @@ body {
     margin-left: .8rem;
 }
 
+.Home>a:link {
+    color: black; 
+    background-color: transparent; 
+    text-decoration: none;
+    margin-left: .8rem;
+}
+
+.Home>a:visited {
+    color: black;
+    margin-left: .8rem;
+    background-color: transparent;
+    text-decoration: none;
+}
+
 .Barraderecha {
     flex-grow: 1;
     display: flex;
