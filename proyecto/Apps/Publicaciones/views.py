@@ -48,7 +48,6 @@ def obtenerPost(request):
     
     print(comments);
 
-
     return render(request, 'comentarios.html', {'publicaciones':post,'comentarios':comments})
 
     
