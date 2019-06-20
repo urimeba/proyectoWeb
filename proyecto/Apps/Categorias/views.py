@@ -16,7 +16,7 @@ def obtenerCategorias(request):
         for categoria in categorias:
             try:
                 posts = models_publicaciones.Publicaciones.objects.filter(categoria_id=categoria.id).latest('fecha')
-                print(posts)
+                # print(posts)
                 publicaciones.append(posts)
             except Exception as e:
                 print(e)

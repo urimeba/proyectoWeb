@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.models import User
+from django.contrib import messages
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login
 from Apps.Usuarios import models as models_usuarios
@@ -96,27 +97,42 @@ def update_view(request):
                 contraseña = request.POST.get('contraseña')
                 contraseña2 = request.POST.get('contraseña2')
                 colonia = request.POST.get('colonia')
-
-                usuario = User.objects.get(username=request.user)
-                usuario.first_name=nombre
-                usuario.last_name=apellido
-                usuario.email=correo
-
-                user = models_usuarios.Usuarios.objects.get(usuario_id=usuario.id)
-                user.colonia_id=colonia
-                user.save()
-
                 if contraseña == "" and contraseña2=="":
+                    usuario = User.objects.get(username=request.user)
+                    usuario.first_name=nombre
+                    usuario.last_name=apellido
+                    usuario.email=correo
                     usuario.save()
+
+                    user = models_usuarios.Usuarios.objects.get(usuario_id=usuario.id)
+                    user.colonia_id=colonia
+                    user.save()
+
+                    request.session['colonia'] = colonia
+                    request.session['nombreColonia'] = models_colonias.Colonias.objects.get(id=colonia).nombre
+                    messages.add_message(request, messages.INFO, "Datos actualizados correctamente")
+                    return redirect('update')
                 elif contraseña == contraseña2:
+                    usuario = User.objects.get(username=request.user.username)
+                    usuario.first_name=nombre
+                    usuario.last_name=apellido
+                    usuario.email=correo
                     usuario.set_password(contraseña)
                     usuario.save()
+
+                    login(request, usuario)
+                    request.session['colonia'] = colonia
+                    request.session['nombreColonia'] = models_colonias.Colonias.objects.get(id=colonia).nombre
+
+                    user = models_usuarios.Usuarios.objects.get(usuario_id=usuario.id)
+                    user.colonia_id=colonia
+                    user.save()
+
+                    messages.add_message(request, messages.INFO, "Datos y contraseña actualizados correctamente")
+
+                    return redirect('update')
                 else:
-                    print("Las contraseñas no coinciden")
-
-
-                request.session['colonia'] = colonia
-                request.session['nombreColonia'] = models_colonias.Colonias.objects.get(id=colonia).nombre
+                    messages.add_message(request, messages.INFO, "Las contraseñas no coincide. Favor de verificar")
                 return redirect('update')
             else:
                 print("El formulario esta mal")

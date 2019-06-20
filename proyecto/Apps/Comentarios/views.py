@@ -23,3 +23,9 @@ def publicarComentario(request):
         print(e)
   
     return HttpResponse("Hola")
+
+def eliminarComentario(request,pk):
+    print(pk)
+    comentario = models_comentarios.Comentarios.objects.get(id=pk)
+    comentario.delete()
+    return HttpResponse("Hola")

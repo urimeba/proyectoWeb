@@ -19,13 +19,5 @@ from Apps.Comentarios import views as views_comentarios
 
 urlpatterns = [
     path('publicarComentario', views_comentarios.publicarComentario, name="publicarComentario"),
-
-    # LAS APLICACIONES SE ENCUENTRAN COMENTADAS
-    # SI LAS OCUPAS, DESCOMENTALAS
-    # path('Categorias', include('Apps.Categorias.urls')),
-    # path('Comentarios', include('Apps.Comentarios.urls')),
-    # path('Publicaciones', include('Apps.Publicaciones.urls')),
-    # path('Usuarios', include('Apps.Usuarios.urls')),
-    # path('Colonias', include('Apps.Colonias.urls')),
-
+    path('eliminarComentario/<int:pk>', views_comentarios.eliminarComentario, name="eliminarComentario"),
 ]

@@ -27,6 +27,11 @@
 <form action="#" class="update" method="POST">
     {% csrf_token %}
     <h1 class="marginB20">Actualizar Información</h1>
+    {% if messages %}
+        {% for message in messages %}
+            <p style="font-size: 14px; margin-bottom:10px; color: black;"> {{ message }} </p>
+        {% endfor %}
+    {% endif %}
     {% for field in form %}
     <div class="form__group--small bigInput">
         {{ field.errors }}

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Apps.Usuarios import views as views_usuarios
-
+# app_name='usuario'
 urlpatterns = [
     path('', views_usuarios.login_view),
     path('login', views_usuarios.login_view, name = 'login'),
