@@ -290,6 +290,9 @@ comment = () => {
         var p2 = document.createElement('p');
         var date = new Date();
 
+        var button = document.createElement('a');
+        button.innerHTML = "Eliminar";
+
         var mes = "";
         switch(date.getMonth()+1)
         {
@@ -344,6 +347,7 @@ comment = () => {
 
         div1.appendChild(div2);
         div1.appendChild(div3);
+        div1.appendChild(button);
 
         padre.insertBefore(div1, document.getElementById('comentar'));
 

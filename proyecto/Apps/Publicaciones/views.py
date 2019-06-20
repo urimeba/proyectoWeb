@@ -45,6 +45,8 @@ def obtenerPost(request):
 
     for comentario in comentarios:
         comments.append(models_comentarios.Comentarios.objects.filter(id=comentario.id))
+    
+    print(comments);
 
 
     return render(request, 'comentarios.html', {'publicaciones':post,'comentarios':comments})
