@@ -84,27 +84,51 @@ def cerrarSesion(request):
     return redirect('/')
 
 def update_view(request):
-    if request.method == 'POST':
-        form = forms.ActualizarDatos(request.POST)
-        
-        if form.is_valid():
-            nombre = request.POST.get('nombre')
-            apellido = request.POST.get('apellido')
-            correo = request.POST.get('correo')
-            contraseña = request.POST.get('contraseña')
-            colonia = request.POST.get('colonia')
+    if 'colonia' in request.session:
 
-            print(nombre)
+        if request.method == 'POST':
+            form = forms.ActualizarDatos(request.POST)
+            
+            if form.is_valid():
+                nombre = request.POST.get('nombre')
+                apellido = request.POST.get('apellido')
+                correo = request.POST.get('correo')
+                contraseña = request.POST.get('contraseña')
+                contraseña2 = request.POST.get('contraseña2')
+                colonia = request.POST.get('colonia')
 
+                usuario = User.objects.get(username=request.user)
+                usuario.first_name=nombre
+                usuario.last_name=apellido
+                usuario.email=correo
+
+                user = models_usuarios.Usuarios.objects.get(usuario_id=usuario.id)
+                user.colonia_id=colonia
+                user.save()
+
+                if contraseña == "" and contraseña2=="":
+                    usuario.save()
+                elif contraseña == contraseña2:
+                    usuario.set_password(contraseña)
+                    usuario.save()
+                else:
+                    print("Las contraseñas no coinciden")
+
+
+                request.session['colonia'] = colonia
+                request.session['nombreColonia'] = models_colonias.Colonias.objects.get(id=colonia).nombre
+                return redirect('update')
+            else:
+                print("El formulario esta mal")
+                return redirect('update')
         else:
-            print("El formulario esta mal")
-            return redirect('update_view')
+            form = forms.ActualizarDatos()
+            colonia = models_usuarios.Usuarios.objects.get(id=request.user.id).colonia.id
+            form.fields['colonia'].initial = [colonia]
+            return render(request, "update.html", {'form':form})
     else:
-        form = forms.ActualizarDatos()
-        colonia = models_usuarios.Usuarios.objects.get(id=request.user.id).colonia.id
-        form.fields['colonia'].initial = [colonia]
-        return render(request, "update.html", {'form':form})
-
+        return redirect('login')
+    
 def obtenerDatosUsuario(request):
     usuario = models_usuarios.Usuarios.objects.get(usuario_id=request.user.id)
 
@@ -119,3 +143,7 @@ def obtenerDatosUsuario(request):
     datos['correo'] = correo
     datos['colonia'] = colonia
     return JsonResponse({'datos':datos})
+
+def cambiarDatosUsuario(request):
+    return HttpResponse("Hola")
+

@@ -25,6 +25,7 @@ urlpatterns = [
     path('cerrarSesion', views_usuarios.cerrarSesion, name="cerrarSesion"),
     path('update', views_usuarios.update_view, name="update"),
     path('obtenerDatosUsuario', views_usuarios.obtenerDatosUsuario, name="obtenerDatosUsuario"),
+    path('cambiarDatosUsuario', views_usuarios.cambiarDatosUsuario, name="cambiarDatosUsuario"),
     
     
     

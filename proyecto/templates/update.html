@@ -23,8 +23,9 @@
         <a href="{% url 'cerrarSesion' %}" class="Cerrar">Cerrar sesión</a>
     </div>
 </div>
-
-<form action="" class="update">
+<!-- {% url 'obtenerDatosUsuario' %} -->
+<form action="#" class="update" method="POST">
+    {% csrf_token %}
     <h1 class="marginB20">Actualizar Información</h1>
     {% for field in form %}
     <div class="form__group--small bigInput">
@@ -34,7 +35,7 @@
     </div>
     {% endfor %}
 
-    <button type="submit" class="sub--small2 marginB20 marginT20 btnAnimation" id="buttonSignUp">Actualizar</button>
+    <button type="submit" data-url="{% url 'obtenerDatosUsuario' %}" class="sub--small2 marginB20 marginT20 btnAnimation" id="buttonSignUp">Actualizar</button>
 </form>
     
 </body>
