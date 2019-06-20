@@ -40,7 +40,7 @@
 		<div class="comentario__body">
 			<p>{{ comentario.0.contenido }}</p>
 		</div>
-		<a href="{% url 'eliminarComentario/' pk=comentario.0.id %}">Eliminar</a>
+		<a href="{% url 'eliminarComentario' pk=comentario.0.id %}">Eliminar</a>
 		{% endfor %}
 	</div>
 
