@@ -49,7 +49,7 @@
 	<div class="Barra">
 		<div class="Home">
 			<img src="{% static 'img/logo.png' %}">
-			<h1>QRO-CHAN</h1>
+			<a href="{% url 'obtenerCategorias' %}"><h1>QRO-CHAN</h1></a>
 		</div>
 		<di class="Barraderecha">
 			<a href="{% url 'update' %}" class="Username" id="Username">{{ user.username }}</a>
