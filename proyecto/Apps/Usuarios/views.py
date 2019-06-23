@@ -68,7 +68,7 @@ def iniciarSesion(request):
             login(request, user)
             colonia = models_usuarios.Usuarios.objects.get(id=user.id).colonia_id
             request.session['colonia'] = colonia
-            request.session['nombreColonia'] = models_colonias.Colonias.objects.get(id=colonia).nombre
+            request.session['nombreColonia'] = models_colonias.Colonias.objects.get(id=colonia).nombre.upper()
             print("Inicio de sesion correcto")
             respuesta = True
         else: 
@@ -109,7 +109,7 @@ def update_view(request):
                     user.save()
 
                     request.session['colonia'] = colonia
-                    request.session['nombreColonia'] = models_colonias.Colonias.objects.get(id=colonia).nombre
+                    request.session['nombreColonia'] = models_colonias.Colonias.objects.get(id=colonia).nombre.upper()
                     messages.add_message(request, messages.INFO, "Datos actualizados correctamente")
                     return redirect('update')
                 elif contraseña == contraseña2:
@@ -122,7 +122,7 @@ def update_view(request):
 
                     login(request, usuario)
                     request.session['colonia'] = colonia
-                    request.session['nombreColonia'] = models_colonias.Colonias.objects.get(id=colonia).nombre
+                    request.session['nombreColonia'] = models_colonias.Colonias.objects.get(id=colonia).nombre.upper()
 
                     user = models_usuarios.Usuarios.objects.get(usuario_id=usuario.id)
                     user.colonia_id=colonia
@@ -132,7 +132,7 @@ def update_view(request):
 
                     return redirect('update')
                 else:
-                    messages.add_message(request, messages.INFO, "Las contraseñas no coincide. Favor de verificar")
+                    messages.add_message(request, messages.INFO, "Las contraseñas no coinciden. Favor de verificar")
                 return redirect('update')
             else:
                 print("El formulario esta mal")

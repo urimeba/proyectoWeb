@@ -1,24 +1,36 @@
-{% for publicacion in publicaciones %}
-<div class="Tarjeta" onclick="obtenerPublicacion({{ publicacion.id }})" id="{{ publicacion.id }}" data-url="{% url 'obtenerPost' %}">
-	<div class="info">
-		<div class="info2">
-			<p>Por: {{ publicacion.usuario.usuario.username }}</p>
+	{% for publicacion in publicaciones %}
+	<div class="Tarjeta" onclick="obtenerPublicacion({{ publicacion.id }})" id="{{ publicacion.id }}" data-url="{% url 'obtenerPost' %}">
+		<div class="info">
+			<div class="info2">
+				<p>Por: {{ publicacion.usuario.usuario.username }}</p>
+			</div>
+			<div class="fecha">
+				<p>Fecha: <b>{{ publicacion.fecha }}</b></p>
+			</div>
 		</div>
-		<div class="fecha">
-			<p>Fecha: <b>{{ publicacion.fecha }}</b></p>
+						
+		<div class="titulo">
+			<h1>{{ publicacion.titulo }}</h1>
 		</div>
-	</div>
-					
-	<div class="titulo">
-		<h1>{{ publicacion.titulo }}</h1>
+
+		<div class="contenido">
+			<p>{{ publicacion.descripcion }}</p>
+		</div>
+
+		<div class="categoria">
+			<p>En: <b>{{ publicacion.categoria.titulo }}</b></p>
+		</div>
 	</div>
 
-	<div class="contenido">
-		<p>{{ publicacion.descripcion }}</p>
-	</div>
+	{% empty %}
+	<h4 style="font-size: 20px; font-weight: bold; width: 100%; text-align:center; margin-top: 20px;">
+			No hay publicaciones
+		</h4>
+		<h4 style="font-size: 20px; font-weight: bold; width: 100%; text-align:center; margin-top: 20px;">
+			¡Sé el primero en realizar una publicacion!
+		</h4>
+	{% endfor %}			
 
-	<div class="categoria">
-		<p>En: <b>{{ publicacion.categoria.titulo }}</b></p>
-	</div>
-</div>
-{% endfor %}
+
+
+

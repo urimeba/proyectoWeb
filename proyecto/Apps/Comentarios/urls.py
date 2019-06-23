@@ -19,5 +19,7 @@ from Apps.Comentarios import views as views_comentarios
 
 urlpatterns = [
     path('publicarComentario', views_comentarios.publicarComentario, name="publicarComentario"),
-    path('eliminarComentario/<int:pk>', views_comentarios.eliminarComentario, name="eliminarComentario"),
+    path('eliminarComentario', views_comentarios.eliminarComentario, name="eliminarComentario"),
+    path('cambiarComentario', views_comentarios.cambiarComentario, name="cambiarComentario"),
+    path('obtenerComentario', views_comentarios.obtenerComentario, name="obtenerComentario"),
 ]
