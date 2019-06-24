@@ -548,7 +548,7 @@ editarComentario = (idComentario) =>
     parrafo.parentNode.removeChild(parrafo);
 
     cajaTexto = document.createElement("textarea");
-    cajaTexto.setAttribute("class","cajaTexto")
+    cajaTexto.setAttribute("class","cajaTexto textareaComment")
     cajaTexto.setAttribute("maxlength","200")
     cajaTexto.setAttribute("rows","5")
     cajaTexto.value=comentario
