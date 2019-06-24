@@ -129,7 +129,7 @@ body {
     margin-bottom: .5rem;
 }
 
-.form__group>textarea{
+.form__group>textarea {
     resize: none;
 }
 
@@ -273,8 +273,8 @@ body {
 }
 
 .Home>a:link {
-    color: black; 
-    background-color: transparent; 
+    color: black;
+    background-color: transparent;
     text-decoration: none;
     margin-left: .8rem;
 }
@@ -303,7 +303,7 @@ body {
     padding: 1.6rem;
 }
 
-.Username{
+.Username {
     height: 100%;
     font-size: 1.4rem;
     text-decoration: none;
@@ -313,7 +313,7 @@ body {
     padding: 1.6rem;
 }
 
-.Colonia{
+.Colonia {
     height: 100%;
     font-size: 1.3rem;
     text-decoration: none;
@@ -340,12 +340,12 @@ body {
 }
 
 .Derechita {
+    height: 40%;
     background-color: #fff;
     display: flex;
     flex-direction: column;
     width: 50%;
     margin-top: 2rem;
-    height: 40%;
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.25);
@@ -475,15 +475,14 @@ body {
 .comentario__body {
     width: 100%;
     font-size: 1.2rem;
-    
+
     display: flex;
     flex-direction: column;
     justify-items: center;
     align-items: flex-end;
 }
 
-.comentario__body > p
-{
+.comentario__body>p {
     width: 100%;
     text-align: justify;
 }
@@ -584,7 +583,7 @@ body {
     width: 100%;
 }
 
-.update{
+.update {
     position: fixed;
     margin-top: 5rem;
     width: 100%;
@@ -595,32 +594,30 @@ body {
     justify-content: center;
 }
 
-.bigInput{
+.bigInput {
     width: 40%;
 }
 
-.bigInput>input{
+.bigInput>input {
     width: 100%;
 }
 
-.colonia
-{
+.colonia {
     height: 60%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     font-size: 1.3rem;
     font-weight: bold;
-    margin-left: 5px;
-    padding-left: 2px;
-    border-left: 1px solid black;
+    margin-left: .6rem;
+    padding-left: .6rem;
+    padding-top: .3rem;
+    border-left: 2px solid black;
 }
 
-.botonEliminar
-{
+.botonEliminar {
+    font-size: 1.1rem;
     background-color: #D23944;
     border: none;
     border-radius: 4px;
@@ -629,28 +626,26 @@ body {
     height: 20px;
 }
 
-.botonEliminar:hover
-{
+.botonEliminar:hover {
     cursor: pointer;
 }
 
-.botonEditar
-{
-    background-color: #41CD6D;
+.botonEditar {
+    font-size: 1.1rem;
+    background-color: #097AFF;
     border: none;
     border-radius: 4px;
     color: white;
     width: 60px;
     height: 20px;
+    margin-bottom: 1rem;
 }
 
-.botonEditar:hover
-{
+.botonEditar:hover {
     cursor: pointer;
 }
 
-.cajaTexto
-{
+.cajaTexto {
     width: 100%;
     border: 1px solid black
 }
