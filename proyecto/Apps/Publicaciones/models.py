@@ -12,3 +12,8 @@ class Publicaciones(models.Model):
     colonia = models.ForeignKey(models_colonias.Colonias, on_delete=models.CASCADE)
     categoria = models.ForeignKey(models_categorias.Categorias, on_delete=models.CASCADE)
     fecha = models.DateField(auto_now_add=True)
+
+    class Meta:
+        ordering=('-fecha',)
+
+

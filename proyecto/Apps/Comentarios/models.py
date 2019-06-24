@@ -10,6 +10,9 @@ class Comentarios(models.Model):
     usuario = models.ForeignKey(models_usuarios.Usuarios, on_delete=models.CASCADE)
     fecha = models.DateField(auto_now_add=True)
 
+
 class comentarios_publicaciones(models.Model):
     publicacion = models.ForeignKey(models_publicaciones.Publicaciones, on_delete=models.CASCADE)
     comentario = models.ForeignKey(Comentarios, on_delete=models.CASCADE)
+
+    

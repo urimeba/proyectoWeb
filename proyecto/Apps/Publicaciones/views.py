@@ -29,6 +29,7 @@ def obtenerPostsCategorias(request):
             posts = models_publicaciones.Publicaciones.objects.filter(categoria_id=id,colonia_id=request.session['colonia'])
         except Exception as e:
             print(e)
+    
     return render(request, 'publicaciones.html', {'publicaciones':posts})
 
 
@@ -40,6 +41,7 @@ def obtenerPost(request):
     comments =  []
 
     post = models_publicaciones.Publicaciones.objects.filter(id=id)
+    print(post)
 
     comentarios = models_comentarios.comentarios_publicaciones.objects.filter(publicacion_id=id)
 
